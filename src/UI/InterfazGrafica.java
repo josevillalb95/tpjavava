@@ -3,6 +3,9 @@ package UI;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import java.awt.CardLayout;
+import javax.swing.JScrollPane;
+import javax.swing.JPanel;
 
 public class InterfazGrafica {
 
@@ -11,17 +14,12 @@ public class InterfazGrafica {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					InterfazGrafica window = new InterfazGrafica();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public void start() {
+		try {
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -36,8 +34,12 @@ public class InterfazGrafica {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 551, 390);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new CardLayout(0, 0));
+		
+		JScrollPane Index = new JScrollPane();
+		frame.getContentPane().add(Index, "name_11549577958554");
 	}
 
 }
