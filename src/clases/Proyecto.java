@@ -19,5 +19,3 @@ public class Proyecto {
 		
 	}
 }
-/*prueba push nueva hecha por Tomy
- */

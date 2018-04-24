@@ -1,15 +1,11 @@
-/**
- * 
- */
 package clases;
 
-import java.util.Comparator;
 
 /**
  * @author tomi_
  *
  */
-public class Tarea implements Comparable, Comparator{
+public class Tarea implements Comparable<Tarea>{
 
 	private String id, nombre, descripcion, ffinalizacion;
 	private EstadoTarea estado;
@@ -39,17 +35,6 @@ public class Tarea implements Comparable, Comparator{
 		this.id = id;
 	}
 	
-	public int compareTo(Tarea arg0) {
-		// TODO Auto-generated method stub
-		return id.compareTo(arg0.id); //Esta bien esto?
-	}
-
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 	public boolean equals(Tarea obj) {
 		if(id.equals(obj.getId()))
 			return true;
@@ -58,9 +43,14 @@ public class Tarea implements Comparable, Comparator{
 	}
 
 	@Override
+	public int compareTo(Tarea arg0) {
+		return this.id.compareTo(arg0.getId());
+	}
+
+	/*@Override
 	public int compare(Object o1, Object o2) {
 		// TODO Auto-generated method stub
 		return 0;
-	}
+	}*/
 	
 }
