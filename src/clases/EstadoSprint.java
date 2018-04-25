@@ -1,9 +1,9 @@
 package clases;
 
 public enum EstadoSprint {
-	PLANIFICADO(),
-	ENCURSO(),
-	TERMINADO();
+	PLANIFICADO,
+	ENCURSO,
+	FINALIZADO;
 	
 	
 }
