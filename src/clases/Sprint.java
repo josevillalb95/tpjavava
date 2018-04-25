@@ -1,20 +1,21 @@
-/**
- * 
- */
 package clases;
 
 import java.util.TreeSet;
 
-/**
- * @author tomi_
- *
- */
+
 public class Sprint implements Comparable<Sprint>{
 	
-	String clave, descripcion;
-	EstadoSprint estado;
-	TreeSet<Tarea> LTareas;
+	private	String clave, descripcion;
+	private EstadoSprint estado;
+	private TreeSet<Tarea> LTareas;
 	
+	public Sprint(String clave, String descripcion, EstadoSprint estado, TreeSet<Tarea> lTareas) {
+		super();
+		this.clave = clave;
+		this.descripcion = descripcion;
+		this.estado = estado;
+		LTareas = lTareas;
+	}
 	
 	
 	public String getClave() {
