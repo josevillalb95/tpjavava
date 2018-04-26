@@ -28,18 +28,41 @@ public class Tarea implements Comparable<Tarea> {
 		this.complejidad = complejidad;
 		Lhist = new ArrayList<>();
 	}
+	
+	/**
+	 * Retorna el id de la Tarea.
+	 * @return id
+	 */
 
 	public String getId() {
 		return id;
 	}
+	
+	/**
+	 * Modifica el id de la Tarea.
+	 * @param id
+	 */
 
 	public void setId(String id) {
 		this.id = id;
 	}
 	
+	/**
+	 * Retorna complejidad de la Tarea.
+	 * @return complejidad
+	 */
+	
 	public int getComplejidad() {
 		return complejidad;
 	}
+	
+	/**
+	 * Compara dos Tareas.
+	 * Retorna True si son iguales.
+	 * Retorna False si son diferentes.
+	 * @param obj
+	 * @return true || false
+	 */
 
 	public boolean equals(Tarea obj) {
 		if (id.equals(obj.getId()))
@@ -48,13 +71,24 @@ public class Tarea implements Comparable<Tarea> {
 			return false;
 	}
 	
+	/**
+	 * Muestra los datos de los pasos que realizó la tarea
+	 * hasta el punto actual.
+	 */
+	
 	public void muestraHistorico(){
 		Iterator<Estado> it = Lhist.iterator();
 		while (it.hasNext()){
 			System.out.println(it.next().toString() + "\n");
 		}		
 	}
+	
 
+	/**
+	 * Permite la comparación entre una Tarea y 
+	 * la Tarea actual.
+	 * param @arg0 	
+	 */
 	@Override
 	public int compareTo(Tarea arg0) {
 		return this.id.compareTo(arg0.getId());

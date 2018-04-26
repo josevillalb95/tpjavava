@@ -19,21 +19,40 @@ public class Sprint implements Comparable<Sprint>{
 		this.LTareas = lTareas;
 	}
 	
-	
+	/**
+	 * Retorna la clave del Sprint.
+	 * @return clave
+	 */
 	public String getClave() {
 		return clave;
 	}
+	
+	/**
+	 * Modifica el valor de la clave del Sprint.
+	 * @param clave
+	 */
 
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
 
+	/**
+	 * Permite la comparación entre dos Sprints
+	 * utilizando la clave para ordenarlos por
+	 * orden alfabético.
+	 * 
+	 */
 	@Override
-	public int compareTo(Sprint arg0) {
-		// TODO Auto-generated method stub
-		
+	public int compareTo(Sprint arg0) {		
 		return this.clave.compareTo(arg0.getClave());
 	}
+	
+	/**
+	 * Comienza el Sprint, indicando
+	 * cual es la fecha de inicio y la de fin.
+	 * @param fi
+	 * @param ff
+	 */
 	
 	public void comenzar(Date fi,Date ff){
 		estado = EstadoSprint.ENCURSO;
@@ -41,6 +60,10 @@ public class Sprint implements Comparable<Sprint>{
 		fFin = ff;
 		//Cantidad de dias de duracion y avance no se saca automaticamente?
 	}
+	
+	/**
+	 * Finaliza el Sprint.
+	 */
 	
 	public void finalizar(){
 		estado = EstadoSprint.FINALIZADO;
