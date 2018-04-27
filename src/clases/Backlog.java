@@ -12,7 +12,7 @@ import java.util.TreeSet;
 public class Backlog {
 	
 	TreeSet<Tarea> LTareasP;
-	TreeSet<Sprint> LSprints;
+	/*TreeSet<Sprint> LSprints;  COMENTAR no lo pide el enunciado  */
 	
 	/**
 	 * @param args
@@ -29,6 +29,9 @@ public class Backlog {
 		for(Tarea lt : LTareasP) {
 			System.out.println(lt.getId());
 		}
+	}
+	public TreeSet<Tarea> getListaTB() {
+		return LTareasP;
 	}
 	
 

@@ -26,6 +26,13 @@ public class Sprint implements Comparable<Sprint>{
 	public String getClave() {
 		return clave;
 	}
+	public TreeSet<Tarea> getListaT() {
+		return LTareas;
+	}
+	
+	public EstadoSprint getEstado() {
+		return estado;
+	}
 	
 	/**
 	 * Modifica el valor de la clave del Sprint.
