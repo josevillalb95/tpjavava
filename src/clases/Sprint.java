@@ -26,6 +26,13 @@ public class Sprint implements Comparable<Sprint>{
 	public String getClave() {
 		return clave;
 	}
+	public void actualizar(String clave, String descripcion, EstadoSprint estado, TreeSet<Tarea> lTareas) {
+		this.clave = clave;
+		this.descripcion = descripcion;
+		this.estado = estado;
+		this.LTareas = lTareas;
+	}
+	
 	public TreeSet<Tarea> getListaT() {
 		return LTareas;
 	}
@@ -33,6 +40,10 @@ public class Sprint implements Comparable<Sprint>{
 	public EstadoSprint getEstado() {
 		return estado;
 	}
+	public String getdescripcion() {
+		return descripcion;
+	}
+	
 	
 	/**
 	 * Modifica el valor de la clave del Sprint.
@@ -60,7 +71,6 @@ public class Sprint implements Comparable<Sprint>{
 	 * @param fi
 	 * @param ff
 	 */
-	
 	public void comenzar(Date fi,Date ff){
 		estado = EstadoSprint.ENCURSO;
 		fInicio = fi;

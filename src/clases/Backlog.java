@@ -30,9 +30,14 @@ public class Backlog {
 			System.out.println(lt.getId());
 		}
 	}
+	
+	
 	public TreeSet<Tarea> getListaTB() {
 		return LTareasP;
+
 	}
+	
+
 	
 
 }

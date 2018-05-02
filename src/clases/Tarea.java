@@ -29,6 +29,42 @@ public class Tarea implements Comparable<Tarea> {
 		Lhist = new ArrayList<>();
 	}
 	
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	 
+	public String getDescripcion() {
+		return descripcion;
+	} 
+	public Date getfFin() {
+		return fFin;
+	} 
+	public Estado getEstado() {
+		return estado;
+	}
+ 
+	public ArrayList<Estado> getLhist() {
+		return Lhist;
+	}
+
+ 
+	public int getEstimacion() {
+		return estimacion;
+	}
+
+ 
+ 
+
+	public void TareaMOD(String nombre, String descripcion, Date finalizacion, Estado estado,int complejidad) {
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.fFin = finalizacion;
+		this.estado = estado;
+		this.complejidad = complejidad;
+	}
 	/**
 	 * Retorna el id de la Tarea.
 	 * @return id
