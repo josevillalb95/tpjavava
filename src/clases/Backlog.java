@@ -11,8 +11,8 @@ import java.util.TreeSet;
  */
 public class Backlog {
 	
-	TreeSet<Tarea> LTareasP;
-	/*TreeSet<Sprint> LSprints;  COMENTAR no lo pide el enunciado  */
+	private TreeSet<Tarea> LTareasP;
+
 	
 	/**
 	 * @param args
@@ -30,12 +30,50 @@ public class Backlog {
 			System.out.println(lt.getId());
 		}
 	}
+
 	
+
 	
 	public TreeSet<Tarea> getListaTB() {
 		return LTareasP;
-
 	}
+	/**
+	 * 
+	 * @param tarea treeset que se va agregar a tareas
+	 */
+	public void aBacklogTarea(Tarea tare) {
+		LTareasP.add(tare);
+	}
+	
+
+	/**
+	 * 
+	 * @param clave
+	 * @param tare
+	 * Modifica el valor de la clave del backglog.
+	 * FALTA EL ESTADO :o !!! 
+	 */
+	public void mBacklogTarea(String clave , Tarea tare) {
+		for(Tarea c:LTareasP ){
+			if(c.getId().equals(clave)){
+				if(c.getEstado() != "finalizado" )
+					c.modTarea(tare.getNombre(),tare.getDescripcion() ,tare.getfFin(), tare.getEstado(), tare.getComplejidad());
+			c.getDescripcion()
+			}
+		}
+	}
+	/**
+	 * 
+	 * @param clave
+	 * elimina un nodo del treeset que concida con la clave enviada 
+	 */
+	public void bSprintTarea(String clave , Tarea tare) {
+		for(Tarea c:LTareasP ){
+			if(c.getId().equals(clave)){
+				LTareasP.remove(c); 
+		}
+	}
+	
 	
 
 	

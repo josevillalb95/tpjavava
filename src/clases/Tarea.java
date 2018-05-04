@@ -3,6 +3,7 @@ package clases;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.TreeSet;
 
 import estadosTareas.Estado;
 
@@ -13,7 +14,7 @@ public class Tarea implements Comparable<Tarea> {
 	private Estado estado;
 	private ArrayList<Estado> Lhist; //Podria ser un Treeset para ordenarlos por fecha?
 	private int complejidad;
-	//El listado de 0 o mas subtareas no seria las dependencias?
+	private TreeSet<Tarea> LSTareas;
 	private int estimacion; //Conviene sacar valor en Constructor o en otra funcion?
 	//No entendi muy bien como obtener estimacion
 	
@@ -21,6 +22,54 @@ public class Tarea implements Comparable<Tarea> {
 			int complejidad) {
 		super();
 		this.id = id;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.fFin = finalizacion;
+		this.estado = estado;
+		this.LSTareas = null;
+		this.complejidad = complejidad;
+		Lhist =null;
+	}
+	public TreeSet<Tarea> getListaS() {
+		return LSTareas;
+	}
+	public void aBacklogTarea(Tarea tare) {
+		LSTareas.add(tare);
+	}
+	
+
+	
+	
+	
+	/**
+	 * 
+	 * @param clave
+	 * @param tare
+	 * Modifica el valor de la clave del backglog.
+	 * FALTA EL ESTADO :o !!! 
+	 */
+	public void mBacklogTarea(String clave , Tarea tare) {
+		for(Tarea c:LSTareas ){
+			if(c.getId().equals(clave)){
+				if(c.getEstado() != "finalizado" )
+					c.modTarea(tare.getNombre(),tare.getDescripcion() ,tare.getfFin(), tare.getEstado(), tare.getComplejidad());
+			c.getDescripcion()
+			}
+		}
+	}
+	/**
+	 * 
+	 * @param clave
+	 * elimina un nodo del treeset que concida con la clave enviada 
+	 */
+	public void bSprintTarea(String clave , Tarea tare) {
+		for(Tarea c:LSTareas ){
+				LSTareas.remove(c); 
+		}
+	}
+	
+	
+	public void modTarea( String nombre, String descripcion, Date finalizacion, Estado estado,int complejidad) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fFin = finalizacion;
@@ -42,8 +91,8 @@ public class Tarea implements Comparable<Tarea> {
 	public Date getfFin() {
 		return fFin;
 	} 
-	public Estado getEstado() {
-		return estado;
+	public String getEstado() {
+		return estado.toString();
 	}
  
 	public ArrayList<Estado> getLhist() {

@@ -8,15 +8,15 @@ public class Sprint implements Comparable<Sprint>{
 	
 	private	String clave, descripcion;
 	private EstadoSprint estado;
-	private Date fInicio,fFin;
+	private Date fInicio , fFin;
 	private TreeSet<Tarea> LTareas;
 	
-	public Sprint(String clave, String descripcion, EstadoSprint estado, TreeSet<Tarea> lTareas) {
+	public Sprint(String clave, String descripcion) {
 		super();
 		this.clave = clave;
 		this.descripcion = descripcion;
-		this.estado = estado;
-		this.LTareas = lTareas;
+		this.estado = estado.PLANIFICADO;
+		this.LTareas = null;
 	}
 	
 	/**
@@ -44,11 +44,46 @@ public class Sprint implements Comparable<Sprint>{
 		return descripcion;
 	}
 	
+	/**
+	 * 
+	 * @param tarea treeset que se va agregar a tareas
+	 */
+	public void aSprintTarea(Tarea tare) {
+		LTareas.add(tare);
+	}
+	
+
+	/**
+	 * 
+	 * @param clave
+	 * @param tare
+	 * Modifica el valor de la clave del Sprint.
+	 * FALTA EL ESTADO :o !!! 
+	 */
+	public void mSprintTarea(String clave , Tarea tare) {
+		for(Tarea c:LTareas ){
+			if(c.getId().equals(clave)){
+				if(c.getEstado() != "finalizado" )
+					c.modTarea(tare.getNombre(),tare.getDescripcion() ,tare.getfFin(), tare.getEstado(), tare.getComplejidad());
+			}
+		}
+		
+	}
+	
 	
 	/**
-	 * Modifica el valor de la clave del Sprint.
+	 * 
 	 * @param clave
+	 * elimina un nodo del treeset que concida con la clave enviada 
 	 */
+	public void bSprintTarea(String clave , Tarea tare) {
+		for(Tarea c:LTareas ){
+			if(c.getId().equals(clave)){
+				LTareas.remove(c);
+			}
+		}
+	}
+	
 
 	public void setClave(String clave) {
 		this.clave = clave;
