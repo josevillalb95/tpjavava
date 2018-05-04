@@ -19,7 +19,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					InterfazGrafica window = new InterfazGrafica();
+					InterfazGrafica window = InterfazGrafica.getInstance();
 					window.start();
 				} catch (Exception e) {
 					e.printStackTrace();

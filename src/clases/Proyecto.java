@@ -6,22 +6,28 @@ package clases;
 import java.util.Date;
 import java.util.TreeSet;
 
+import UI.InterfazGrafica;
 import estadosTareas.Estado;
 
 /**
  * @author jose_
  *
  */
-public class Proyecto {
+public final class Proyecto {
 	private Backlog blog;
 	private TreeSet<Sprint> LSprints;
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Backlog b = new Backlog();
-		b.agrega();
+	private static Proyecto instance = null;
+	
+	public static Proyecto getInstance(){
+		
+		if (instance == null)
+			instance = new Proyecto(); 
+		
+		return instance; 
 		
 	}
+	
 	public void altaSprint(String clave , String descripcion) {
 		Sprint  spri= new Sprint(clave, descripcion);
 		LSprints.add(spri);
