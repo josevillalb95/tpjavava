@@ -14,8 +14,8 @@ import estadosTareas.Estado;
  *
  */
 public final class Proyecto {
-	private Backlog blog;
-	private TreeSet<Sprint> LSprints;
+	private Backlog blog = new Backlog();
+	private TreeSet<Sprint> LSprints = new TreeSet<Sprint>();
 	
 	private static Proyecto instance = null;
 	
@@ -29,8 +29,7 @@ public final class Proyecto {
 	}
 	
 	public void altaSprint(String clave , String descripcion) {
-		Sprint  spri= new Sprint(clave, descripcion);
-		LSprints.add(spri);
+		LSprints.add(new Sprint(clave, descripcion));
 	}
 	
 	public void bajaSprint(String clave){
@@ -53,6 +52,15 @@ public final class Proyecto {
 		}
 	}
 	
+	/**
+	 * Para ver lista de Sprints
+	 * Despues borrar
+	 */
+	public void corrersp(){
+		for(Sprint lt : LSprints) {
+			System.out.println(lt.getClave());
+		}
+	}
 	
 	
 }

@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 
 public final class InterfazGrafica {
 
-	private JFrame frame = new JFrame();
+	private JFrame frmScrum = new JFrame();
 	private JPanel panel = new JPanel();
 	private Index index = new Index();
 	private ABMSprints abms = new ABMSprints();
@@ -25,8 +25,9 @@ public final class InterfazGrafica {
 	 */
 	public void start() {
 		try {
-			frame.setVisible(true);
+			frmScrum.setVisible(true);
 			panel.setVisible(true);
+			frmScrum.setLocationRelativeTo(null);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -34,20 +35,20 @@ public final class InterfazGrafica {
 	}
 	
 	public void abrirIndex() {
-		frame.remove(panel);
+		frmScrum.remove(panel);
 		panel = index;
 		
-		frame.add(panel);
-		frame.revalidate();
+		frmScrum.getContentPane().add(panel);
+		frmScrum.revalidate();
 	}
 
 	public void abrirABMSprint(){
 		
-		frame.remove(panel);
+		frmScrum.remove(panel);
 		panel = abms;
 		
-		frame.add(panel);
-		frame.revalidate();
+		frmScrum.getContentPane().add(panel);
+		frmScrum.revalidate();
 	}
 	
 	/**
@@ -72,12 +73,13 @@ public final class InterfazGrafica {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame.setBounds(100, 100, 551, 390);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmScrum.setTitle("Scrum");
+		frmScrum.setBounds(100, 100, 551, 390);
+		frmScrum.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		frame.setLayout(cl);
+		frmScrum.getContentPane().setLayout(cl);
 		panel = index;
-		frame.add(panel);
+		frmScrum.getContentPane().add(panel);
 		
 		
 		/*frame.add(panel);

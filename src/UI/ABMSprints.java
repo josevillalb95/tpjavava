@@ -4,9 +4,14 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 
+import com.sun.xml.internal.ws.api.message.Message;
+
+import clases.Backlog;
 import clases.Proyecto;
 
 import javax.swing.JComboBox;
@@ -18,6 +23,7 @@ public class ABMSprints extends JPanel {
 	private JTextField txtClave;
 	private JTextField txtDescripcion;
 	private int accion = 0;
+	private JPanel panelAM = new JPanel();
 
 	/**
 	 * Create the panel.
@@ -33,13 +39,19 @@ public class ABMSprints extends JPanel {
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				accion = 1;
-				txtClave.setEnabled(true);
+				panelAM.setEnabled(true);
 			}
 		});
 		btnAgregar.setBounds(350, 50, 89, 23);
 		add(btnAgregar);
 		
 		JButton btnModificar = new JButton("Modificar");
+		btnModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				accion = 2;
+				panelAM.setEnabled(true);
+			}
+		});
 		btnModificar.setBounds(350, 109, 89, 23);
 		add(btnModificar);
 		
@@ -52,37 +64,6 @@ public class ABMSprints extends JPanel {
 		lblSprints.setBounds(66, 1, 127, 25);
 		add(lblSprints);
 		
-		txtClave = new JTextField();
-		txtClave.setBounds(51, 233, 86, 20);
-		add(txtClave);
-		txtClave.setColumns(10);
-		
-		JLabel lblClave = new JLabel("Clave");
-		lblClave.setBounds(20, 236, 46, 14);
-		add(lblClave);
-		
-		txtDescripcion = new JTextField();
-		txtDescripcion.setBounds(207, 233, 133, 20);
-		add(txtDescripcion);
-		txtDescripcion.setColumns(10);
-		
-		JLabel lblDescripcion = new JLabel("Descripcion");
-		lblDescripcion.setBounds(148, 236, 75, 14);
-		add(lblDescripcion);
-		
-		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Proyecto.getInstance().altaSprint(txtClave.getText(), txtDescripcion.getText());
-			}
-		});
-		btnAceptar.setBounds(350, 232, 75, 23);
-		add(btnAceptar);
-		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(350, 266, 75, 23);
-		add(btnCancelar);
-		
 		JButton button = new JButton("<-");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -91,6 +72,35 @@ public class ABMSprints extends JPanel {
 		});
 		button.setBounds(10, 3, 46, 23);
 		add(button);
+		
+		panelAM.setBounds(10, 227, 430, 73);
+		add(panelAM);
+		
+		JLabel lblClave = new JLabel("Clave");
+		panelAM.add(lblClave);
+		
+		txtClave = new JTextField();
+		panelAM.add(txtClave);
+		txtClave.setColumns(10);
+		
+		JLabel lblDescripcion = new JLabel("Descripcion");
+		panelAM.add(lblDescripcion);
+		
+		txtDescripcion = new JTextField();
+		panelAM.add(txtDescripcion);
+		txtDescripcion.setColumns(10);
+		
+		JButton btnAceptar = new JButton("Aceptar");
+		panelAM.add(btnAceptar);
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Proyecto.getInstance().altaSprint(txtClave.getText(), txtDescripcion.getText());
+				JOptionPane.showMessageDialog(null, "Sprint agregado con exito.");
+			}
+		});
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		panelAM.add(btnCancelar);
 		
 	}
 }

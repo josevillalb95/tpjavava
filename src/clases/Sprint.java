@@ -12,10 +12,9 @@ public class Sprint implements Comparable<Sprint>{
 	private TreeSet<Tarea> LTareas;
 	
 	public Sprint(String clave, String descripcion) {
-		super();
 		this.clave = clave;
 		this.descripcion = descripcion;
-		this.estado = estado.PLANIFICADO;
+		this.estado = EstadoSprint.PLANIFICADO;
 		this.LTareas = null;
 	}
 	
@@ -95,7 +94,6 @@ public class Sprint implements Comparable<Sprint>{
 	 * orden alfabético.
 	 * 
 	 */
-	@Override
 	public int compareTo(Sprint arg0) {		
 		return this.clave.compareTo(arg0.getClave());
 	}

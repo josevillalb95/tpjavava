@@ -53,12 +53,13 @@ public class Backlog {
 	 * Modifica el valor de la clave del backglog.
 	 * FALTA EL ESTADO :o !!! 
 	 */
+	
 	public void mBacklogTarea(String clave , Tarea tare) {
 		for(Tarea c:LTareasP ){
 			if(c.getId().equals(clave)){
 				if(c.getEstado() != "finalizado" )
-					c.modTarea(tare.getNombre(),tare.getDescripcion() ,tare.getfFin(), tare.getEstado(), tare.getComplejidad());
-			c.getDescripcion()
+					//c.modTarea(tare.getNombre(),tare.getDescripcion() ,tare.getfFin(), tare.getEstado(), tare.getComplejidad());
+			c.getDescripcion();
 			}
 		}
 	}
@@ -71,6 +72,7 @@ public class Backlog {
 		for(Tarea c:LTareasP ){
 			if(c.getId().equals(clave)){
 				LTareasP.remove(c); 
+			}
 		}
 	}
 	
