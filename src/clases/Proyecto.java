@@ -8,12 +8,15 @@ import java.util.TreeSet;
 
 import UI.InterfazGrafica;
 import estadosTareas.Estado;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 /**
  * @author jose_
  *
  */
 public final class Proyecto {
+	private LocalDate today = LocalDate.now();
 	private Backlog blog = new Backlog();
 	private TreeSet<Sprint> LSprints = new TreeSet<Sprint>();
 	
@@ -25,6 +28,20 @@ public final class Proyecto {
 			instance = new Proyecto(); 
 		
 		return instance; 
+		
+	}
+	public void diasig(){
+		today= today.plus(1, ChronoUnit.DAYS);
+		for(Sprint c:LSprints){
+			if(c.getFechaFin().compareTo(today)==1);{
+				c.setEstadoSprint(EstadoSprint.FINALIZADO);
+					for(Tarea b:c.getListaT()){
+						System.out.println(b.getDescripcion());  //faltan las otras descripciones ... 
+					
+						
+					}
+			}
+		}
 		
 	}
 	

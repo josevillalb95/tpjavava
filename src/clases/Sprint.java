@@ -2,13 +2,13 @@ package clases;
 
 import java.util.Date;
 import java.util.TreeSet;
-
+import java.time.LocalDate;
 
 public class Sprint implements Comparable<Sprint>{
 	
 	private	String clave, descripcion;
 	private EstadoSprint estado;
-	private Date fInicio , fFin;
+	private LocalDate fInicio , fFin;
 	private TreeSet<Tarea> LTareas;
 	
 	public Sprint(String clave, String descripcion) {
@@ -31,13 +31,16 @@ public class Sprint implements Comparable<Sprint>{
 		this.estado = estado;
 		this.LTareas = lTareas;
 	}
-	
+
 	public TreeSet<Tarea> getListaT() {
 		return LTareas;
 	}
 	
 	public EstadoSprint getEstado() {
 		return estado;
+	}
+	public void setEstadoSprint(EstadoSprint estado) {
+		this.estado = estado;
 	}
 	public String getdescripcion() {
 		return descripcion;
@@ -96,6 +99,10 @@ public class Sprint implements Comparable<Sprint>{
 	 */
 	public int compareTo(Sprint arg0) {		
 		return this.clave.compareTo(arg0.getClave());
+	}
+	
+	public LocalDate getFechaFin(){
+		return fFin;
 	}
 	
 	/**

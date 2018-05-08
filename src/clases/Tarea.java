@@ -53,7 +53,7 @@ public class Tarea implements Comparable<Tarea> {
 			if(c.getId().equals(clave)){
 				if(c.getEstado() != "finalizado" )
 					c.modTarea(tare.getNombre(),tare.getDescripcion() ,tare.getfFin(), tare.getEstado(), tare.getComplejidad());
-			c.getDescripcion()
+			c.getDescripcion();
 			}
 		}
 	}

@@ -14,7 +14,14 @@ public class Estado {
 	 */
 	
 	private String nombre,descripcion;
+	private Estado eSig=null,eAnt=null;
 	//Estado siguiente y anterior
+	public void seteSig(Estado eSig) {
+		this.eSig = eSig;
+	}
+	public void seteAnt(Estado eAnt) {
+		this.eAnt = eAnt;
+	}
 
 	
 	/** 
