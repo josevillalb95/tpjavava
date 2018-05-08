@@ -4,6 +4,7 @@
 package clases;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.TreeSet;
 
 import UI.InterfazGrafica;
@@ -50,17 +51,23 @@ public final class Proyecto {
 	}
 	
 	public void bajaSprint(String clave){
-		for(Sprint c:LSprints){
-			if(c.getClave().equals(clave)){
-				if(c.getEstado()==EstadoSprint.PLANIFICADO){
-					for(Tarea p: c.getListaT()){
+		Iterator<Sprint> it = LSprints.iterator();
+		Sprint sp = it.next();
+		while(it.hasNext() && (!it.next().getClave().equals(clave))){
+			if(sp.getClave().equals(clave)){
+				if(sp.getEstado()==EstadoSprint.PLANIFICADO){
+/*					for(Tarea p: c.getListaT()){                               TRABAJAR CON LAS TAREAS
 						blog.getListaTB().add(p);
-					}
-					LSprints.remove(c);
-				}
-			}		
+					}*/
+					
+					LSprints.remove(sp);
+					System.out.println("Hola");
+				}	
+			}
+			sp = it.next();
 		}
 	}
+	
 	public void modificacionSprint(String clave ,String descricion){
 		for(Sprint c:LSprints){
 			if(c.getClave().equals(clave)){

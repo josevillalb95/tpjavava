@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.TableModel;
 
 import com.sun.xml.internal.ws.api.message.Message;
 
@@ -16,6 +18,7 @@ import clases.Proyecto;
 
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class ABMSprints extends JPanel {
@@ -30,10 +33,11 @@ public class ABMSprints extends JPanel {
 	 */
 	public ABMSprints() {
 		setLayout(null);
-		
+				
 		table = new JTable();
 		table.setBounds(10, 31, 330, 191);
 		add(table);
+		table.setModel(new SprintsTM(Proyecto.getInstance().getLSprints()));
 		
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
@@ -56,6 +60,11 @@ public class ABMSprints extends JPanel {
 		add(btnModificar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Proyecto.getInstance().bajaSprint(table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+			}
+		});
 		btnEliminar.setBounds(350, 174, 89, 23);
 		add(btnEliminar);
 		
@@ -95,7 +104,11 @@ public class ABMSprints extends JPanel {
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Proyecto.getInstance().altaSprint(txtClave.getText(), txtDescripcion.getText());
+				
+				table.setModel(new SprintsTM(Proyecto.getInstance().getLSprints()));
+				
 				JOptionPane.showMessageDialog(null, "Sprint agregado con exito.");
+				Proyecto.getInstance().corrersp();
 			}
 		});
 		
