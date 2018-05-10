@@ -50,6 +50,14 @@ public final class Proyecto {
 		LSprints.add(new Sprint(clave, descripcion));
 	}
 	
+	/**
+	 * Retorna la lista de Sprints del Proyecto
+	 * @return Lista de Sprints
+	 */
+	public TreeSet<Sprint> getLSprints() {
+		return LSprints;
+	}
+	
 	public void bajaSprint(String clave){
 		Iterator<Sprint> it = LSprints.iterator();
 		Sprint sp = it.next();

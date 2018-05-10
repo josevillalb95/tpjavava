@@ -16,6 +16,7 @@ public final class InterfazGrafica {
 	private JPanel panel = new JPanel();
 	private Index index = new Index();
 	private ABMSprints abms = new ABMSprints();
+	private ABMTareas abmt = new ABMTareas();
 	private CardLayout cl = new CardLayout();
 	
 	private static InterfazGrafica instance = null;
@@ -46,10 +47,20 @@ public final class InterfazGrafica {
 		
 		frmScrum.remove(panel);
 		panel = abms;
+		abms.HidePanelAM();
 		
 		frmScrum.getContentPane().add(panel);
 		frmScrum.revalidate();
 	}
+	
+	public void abrirABMSTareas(){
+			
+			frmScrum.remove(panel);
+			panel = abmt;
+			
+			frmScrum.getContentPane().add(panel);
+			frmScrum.revalidate();
+		}
 	
 	/**
 	 * Create the application.

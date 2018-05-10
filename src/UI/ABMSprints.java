@@ -31,6 +31,7 @@ public class ABMSprints extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	
 	public ABMSprints() {
 		setLayout(null);
 				
@@ -43,7 +44,7 @@ public class ABMSprints extends JPanel {
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				accion = 1;
-				panelAM.setEnabled(true);
+				panelAM.setVisible(true);
 			}
 		});
 		btnAgregar.setBounds(350, 50, 89, 23);
@@ -53,8 +54,7 @@ public class ABMSprints extends JPanel {
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				accion = 2;
-				panelAM.setEnabled(true);
-			}
+				panelAM.setVisible(true);			}
 		});
 		btnModificar.setBounds(350, 109, 89, 23);
 		add(btnModificar);
@@ -73,14 +73,14 @@ public class ABMSprints extends JPanel {
 		lblSprints.setBounds(66, 1, 127, 25);
 		add(lblSprints);
 		
-		JButton button = new JButton("<-");
-		button.addActionListener(new ActionListener() {
+		JButton bBack = new JButton("<-");
+		bBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				InterfazGrafica.getInstance().abrirIndex();
 			}
 		});
-		button.setBounds(10, 3, 46, 23);
-		add(button);
+		bBack.setBounds(10, 3, 46, 23);
+		add(bBack);
 		
 		panelAM.setBounds(10, 227, 430, 73);
 		add(panelAM);
@@ -109,11 +109,26 @@ public class ABMSprints extends JPanel {
 				
 				JOptionPane.showMessageDialog(null, "Sprint agregado con exito.");
 				Proyecto.getInstance().corrersp();
-			}
+				LimpiaCampos();
+				panelAM.setVisible(false);			}
 		});
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LimpiaCampos();
+				panelAM.setVisible(false);			}
+		});
 		panelAM.add(btnCancelar);
 		
+	}
+	
+	public void HidePanelAM(){
+		panelAM.setVisible(false);
+	}
+	
+	public void LimpiaCampos(){
+		txtClave.setText(null);
+		txtDescripcion.setText(null);
 	}
 }

@@ -20,9 +20,17 @@ public final class Index extends JPanel {
 				
 			}
 		});
-		btnABMSprints.setBounds(268, 80, 89, 23);
+		btnABMSprints.setBounds(268, 80, 116, 23);
 		add(btnABMSprints);
+		
+		JButton btnABMTareas = new JButton("ABM Tareas");
+		btnABMTareas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				InterfazGrafica.getInstance().abrirABMSTareas();
+			}
+		});
+		btnABMTareas.setBounds(268, 151, 116, 23);
+		add(btnABMTareas);
 
 	}
-
 }

@@ -42,7 +42,7 @@ public class Sprint implements Comparable<Sprint>{
 	public void setEstadoSprint(EstadoSprint estado) {
 		this.estado = estado;
 	}
-	public String getdescripcion() {
+	public String getDescripcion() {
 		return descripcion;
 	}
 	

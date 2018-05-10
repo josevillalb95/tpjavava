@@ -22,7 +22,7 @@ public class Main {
 			public void run() {
 				try {
 					Sprint s= new Sprint("hola","mundoo");
-					s.addDay();
+					//s.addDay();
 					
 					InterfazGrafica window = InterfazGrafica.getInstance();
 					window.start();
