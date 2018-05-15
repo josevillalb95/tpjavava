@@ -17,8 +17,8 @@ public class Historia extends Tarea{
 	private ArrayList<Historia> dependencias; 
 	//Dupla flujo paso = otra clase? O hacerlo como dos arreglos?
 
-	public Historia(String id, String nombre, String descripcion, Date finalizacion, Estado estado, int complejidad) {
-		super(id, nombre, descripcion, finalizacion, estado, complejidad);
+	public Historia(String id, String nombre, String descripcion, Date finalizacion, int complejidad) {
+		super(id, nombre, descripcion, finalizacion, complejidad);
 		// TODO Auto-generated constructor stub
 	}
 

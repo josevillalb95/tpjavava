@@ -28,9 +28,13 @@ public final class Proyecto {
 		if (instance == null)
 			instance = new Proyecto(); 
 		
-		return instance; 
-		
+		return instance; 	
 	}
+	
+	public Backlog getBlog() {
+		return blog;
+	}
+
 	public void diasig(){
 		today= today.plus(1, ChronoUnit.DAYS);
 		for(Sprint c:LSprints){

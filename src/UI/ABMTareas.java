@@ -6,10 +6,18 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+
+import clases.Backlog;
+import clases.Proyecto;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 import java.awt.event.ActionEvent;
+import javax.swing.JSpinner;
+import javax.swing.JFormattedTextField;
 
 public class ABMTareas extends JPanel {
 	private JTable table;
@@ -54,8 +62,15 @@ public class ABMTareas extends JPanel {
 		add(btnEliminar);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(20, 226, 430, 73);
+		panel.setBounds(20, 226, 430, 101);
 		add(panel);
+		
+		JLabel lblTipo = new JLabel("Tipo");
+		panel.add(lblTipo);
+		
+		JComboBox cbTipo = new JComboBox();
+		cbTipo.setModel(new DefaultComboBoxModel(new String[] {"Bug", "Historia", "Mejora"}));
+		panel.add(cbTipo);
 		
 		JLabel lblId = new JLabel("Id");
 		panel.add(lblId);
@@ -86,6 +101,14 @@ public class ABMTareas extends JPanel {
 		panel.add(cbComplejidad);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Proyecto.getInstance().getBlog().altaTarea(cbTipo.getSelectedItem().toString(),txtId.getText(),txtNombre.getText(),txtDescripcion.getText(),new Date(),Integer.parseInt(cbComplejidad.getSelectedItem().toString()));
+					
+					/**/
+						
+			}
+		});
 		panel.add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");

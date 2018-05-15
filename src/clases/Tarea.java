@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 import estadosTareas.Estado;
+import estadosTareas.ToDo;
 
 public class Tarea implements Comparable<Tarea> {
 
@@ -16,16 +17,17 @@ public class Tarea implements Comparable<Tarea> {
 	private int complejidad;
 	private TreeSet<Tarea> LSTareas;
 	private int estimacion; //Conviene sacar valor en Constructor o en otra funcion?
-	//No entendi muy bien como obtener estimacion
+	//Dependencias
+	//Subtareas
 	
-	public Tarea(String id, String nombre, String descripcion, Date finalizacion, Estado estado,
+	public Tarea(String id, String nombre, String descripcion, Date finalizacion,
 			int complejidad) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fFin = finalizacion;
-		this.estado = estado;
+		//this.estado = new ToDo();
 		this.LSTareas = null;
 		this.complejidad = complejidad;
 		Lhist =null;
