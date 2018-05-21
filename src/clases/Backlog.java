@@ -37,7 +37,7 @@ public class Backlog {
 	
 
 	
-	public TreeSet<Tarea> getListaTB() {
+	public TreeSet<Tarea> getLTareasP() {
 		return LTareasP;
 	}
 
@@ -61,6 +61,9 @@ public class Backlog {
 				break;
 			case "Mejora":
 				tar = new Mejora(id,nombre,desc,finalizacion,comp);
+				break;
+			case "Tarea":
+				tar = new Tarea(id,nombre,desc,finalizacion,comp);
 				break;
 			default:
 				tar = null;

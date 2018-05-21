@@ -48,6 +48,7 @@ public class ABMTareas extends JPanel {
 		table = new JTable();
 		table.setBounds(20, 30, 330, 191);
 		add(table);
+		table.setModel(new TareasTM(Proyecto.getInstance().getBlog().getLTareasP()));
 		
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.setBounds(360, 49, 89, 23);
@@ -104,8 +105,7 @@ public class ABMTareas extends JPanel {
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Proyecto.getInstance().getBlog().altaTarea(cbTipo.getSelectedItem().toString(),txtId.getText(),txtNombre.getText(),txtDescripcion.getText(),new Date(),Integer.parseInt(cbComplejidad.getSelectedItem().toString()));
-					
-					/**/
+				table.setModel(new TareasTM(Proyecto.getInstance().getBlog().getLTareasP()));
 						
 			}
 		});

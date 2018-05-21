@@ -94,8 +94,8 @@ public class Tarea implements Comparable<Tarea> {
 	public Date getfFin() {
 		return fFin;
 	} 
-	public String getEstado() {
-		return estado.toString();
+	public Estado getEstado() {
+		return estado;
 	}
  
 	public ArrayList<Estado> getLhist() {
