@@ -10,9 +10,7 @@ package estadosTareas;
 public class ReadyToTest extends Estado {
 
 	public ReadyToTest() {
-		super();
-		// TODO Auto-generated constructor stub
-		seteSig(new Testing() );
+		super("Ready to Test","La tarea se encuentra lista para probar", null, new Testing());
 	}
 
 }

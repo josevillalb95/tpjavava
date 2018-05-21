@@ -10,10 +10,7 @@ package estadosTareas;
 public class PendingToBuild extends Estado {
 
 	public PendingToBuild() {
-		super();
-		// TODO Auto-generated constructor stub
-		seteSig(new ReadyToTest() );
-		seteAnt(new ToDo() );
+		super("Pending to Build","La tarea esta esperando para ser construida", new ReadyToTest(), new ToDo());
 	}
 
 }

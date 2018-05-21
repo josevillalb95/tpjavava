@@ -10,10 +10,7 @@ package estadosTareas;
 public class ToDo extends Estado {
 
 	public ToDo() {
-		super();
-		// TODO Auto-generated constructor stub
-		seteSig(new InProgress() );
-		
+		super("To Do","La tarea esta esperando para ser realizada", null, new InProgress());
 	}
 	
 

@@ -10,10 +10,7 @@ package estadosTareas;
 public class Testing extends Estado {
 
 	public Testing() {
-		super();
-		// TODO Auto-generated constructor stub
-		seteAnt(new ToDo() );
-		seteSig(new Done() );
+		super("Testing","La tarea se esta probando", new ToDo(), new Done());
 	}
 
 }

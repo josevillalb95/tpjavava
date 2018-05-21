@@ -16,23 +16,22 @@ public class Estado {
 	private String nombre,descripcion;
 	private Estado eSig=null,eAnt=null;
 	//Estado siguiente y anterior
-	public void seteSig(Estado eSig) {
-		this.eSig = eSig;
-	}
-	public void seteAnt(Estado eAnt) {
-		this.eAnt = eAnt;
-	}
-
 	
-	/** 
-	 * Estos se tienen que generar de forma automatica (nombre y descripcion)
-	 */
-	/*public Estado(String nombre, String descripcion) {
+	public Estado(String nombre, String descripcion, Estado eSig, Estado eAnt) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
+		this.eSig = eSig;
+		this.eAnt = eAnt;
 	}
-	*/
+	
+	public void seteSig(Estado eSig) {
+		this.eSig = eSig;
+	}
+
+	public void seteAnt(Estado eAnt) {
+		this.eAnt = eAnt;
+	}
 	
 	
 }

@@ -10,10 +10,7 @@ package estadosTareas;
 public class InProgress extends Estado {
 
 	public InProgress() {
-		super();
-		// TODO Auto-generated constructor stub
-	
-		seteSig(new PendingToBuild() );
+		super("In Progress","La tarea se encuentra en progreso", null, new PendingToBuild());
 	}
 	
 
