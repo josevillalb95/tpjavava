@@ -54,7 +54,13 @@ public class ABMSprints extends JPanel {
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				accion = 2;
-				panelAM.setVisible(true);			}
+				panelAM.setVisible(true);
+				txtClave.setText(table.getValueAt(table.getSelectedRow(), 0).toString());
+				txtClave.setEnabled(false);
+				txtDescripcion.setText(table.getValueAt(table.getSelectedRow(), 1).toString());
+				table.setEnabled(false);
+				
+			}
 		});
 		btnModificar.setBounds(350, 109, 89, 23);
 		add(btnModificar);
@@ -63,6 +69,7 @@ public class ABMSprints extends JPanel {
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Proyecto.getInstance().bajaSprint(table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+				table.setModel(new SprintsTM(Proyecto.getInstance().getLSprints()));
 			}
 		});
 		btnEliminar.setBounds(350, 174, 89, 23);
@@ -103,14 +110,24 @@ public class ABMSprints extends JPanel {
 		panelAM.add(btnAceptar);
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Proyecto.getInstance().altaSprint(txtClave.getText(), txtDescripcion.getText());
-				
+				if(accion==1){
+					Proyecto.getInstance().altaSprint(txtClave.getText(), txtDescripcion.getText());
+					JOptionPane.showMessageDialog(null, "Sprint agregado con exito.");
+				}
+				else
+					if (accion ==2){
+						table.setEnabled(true);
+						txtClave.setEnabled(true);
+						Proyecto.getInstance().modificacionSprint(txtClave.getText(), txtDescripcion.getText());
+						JOptionPane.showMessageDialog(null, "Sprint modificado con exito.");
+					}
 				table.setModel(new SprintsTM(Proyecto.getInstance().getLSprints()));
-				
-				JOptionPane.showMessageDialog(null, "Sprint agregado con exito.");
 				Proyecto.getInstance().corrersp();
 				LimpiaCampos();
-				panelAM.setVisible(false);			}
+				panelAM.setVisible(false);	
+				
+				accion = 0;
+			}
 		});
 		
 		JButton btnCancelar = new JButton("Cancelar");

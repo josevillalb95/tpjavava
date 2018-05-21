@@ -63,27 +63,30 @@ public final class Proyecto {
 	}
 	
 	public void bajaSprint(String clave){
+		boolean bandera = false;
 		Iterator<Sprint> it = LSprints.iterator();
 		Sprint sp = it.next();
-		while(it.hasNext() && (!it.next().getClave().equals(clave))){
+		while(!bandera && it.hasNext() && (sp.getClave().compareTo(clave)<=0)){
 			if(sp.getClave().equals(clave)){
 				if(sp.getEstado()==EstadoSprint.PLANIFICADO){
 /*					for(Tarea p: c.getListaT()){                               TRABAJAR CON LAS TAREAS
 						blog.getListaTB().add(p);
 					}*/
 					
-					LSprints.remove(sp);
-					System.out.println("Hola");
-				}	
+				}
+				LSprints.remove(sp);
+				bandera = true;
+				System.out.println("Hola");
 			}
-			sp = it.next();
+			else
+				sp = it.next();
 		}
 	}
 	
 	public void modificacionSprint(String clave ,String descricion){
 		for(Sprint c:LSprints){
 			if(c.getClave().equals(clave)){
-				c.actualizar(c.getClave(), descricion, null, null);
+				c.actualizar(clave, descricion);
 			}
 		}
 	}

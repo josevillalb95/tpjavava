@@ -69,7 +69,7 @@ public class ABMTareas extends JPanel {
 		panel.add(lblTipo);
 		
 		JComboBox cbTipo = new JComboBox();
-		cbTipo.setModel(new DefaultComboBoxModel(new String[] {"Bug", "Historia", "Mejora"}));
+		cbTipo.setModel(new DefaultComboBoxModel(new String[] {"Tarea", "Bug", "Historia", "Mejora"}));
 		panel.add(cbTipo);
 		
 		JLabel lblId = new JLabel("Id");

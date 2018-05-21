@@ -25,11 +25,9 @@ public class Sprint implements Comparable<Sprint>{
 	public String getClave() {
 		return clave;
 	}
-	public void actualizar(String clave, String descripcion, EstadoSprint estado, TreeSet<Tarea> lTareas) {
+	public void actualizar(String clave, String descripcion) {
 		this.clave = clave;
 		this.descripcion = descripcion;
-		this.estado = estado;
-		this.LTareas = lTareas;
 	}
 
 	public TreeSet<Tarea> getListaT() {

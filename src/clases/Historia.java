@@ -12,9 +12,8 @@ import estadosTareas.Estado;
  * @author tomi_
  *
  */
-public class Historia extends Tarea{
+public class Historia extends Tarea{	
 	
-	private ArrayList<Historia> dependencias; 
 	//Dupla flujo paso = otra clase? O hacerlo como dos arreglos?
 
 	public Historia(String id, String nombre, String descripcion, Date finalizacion, int complejidad) {
