@@ -17,7 +17,7 @@ public class Tarea implements Comparable<Tarea> {
 	private int complejidad;
 	private TreeSet<Tarea> LSTareas;
 	private int estimacion; //Conviene sacar valor en Constructor o en otra funcion?
-	private TreeSet<Tarea> LDependencias;
+	private TreeSet<Tarea> Ldependencias;
 	private TreeSet<Tarea> LSubtareas;
 	
 	public Tarea(String id, String nombre, String descripcion, Date finalizacion,
@@ -30,7 +30,6 @@ public class Tarea implements Comparable<Tarea> {
 		//this.estado = new ToDo();
 		this.LSTareas = null;
 		this.complejidad = complejidad;
-		estimacion = complejidad;
 		Lhist =null;
 	}
 	public TreeSet<Tarea> getListaS() {
@@ -40,10 +39,9 @@ public class Tarea implements Comparable<Tarea> {
 		LSTareas.add(tare);
 	}
 	
-
-	
-	
-	
+	public TreeSet<Tarea> getLdependencias() {
+		return Ldependencias;
+	}
 	/**
 	 * 
 	 * @param clave
@@ -94,8 +92,8 @@ public class Tarea implements Comparable<Tarea> {
 	public Date getfFin() {
 		return fFin;
 	} 
-	public Estado getEstado() {
-		return estado;
+	public String getEstado() {
+		return estado.toString();
 	}
  
 	public ArrayList<Estado> getLhist() {
@@ -106,10 +104,7 @@ public class Tarea implements Comparable<Tarea> {
 	public int getEstimacion() {
 		return estimacion;
 	}
-
- 
- 
-
+	
 	public void TareaMOD(String nombre, String descripcion, Date finalizacion, Estado estado,int complejidad) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;

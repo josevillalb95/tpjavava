@@ -17,7 +17,14 @@ public class Bug extends Tarea{
 	
 	public Bug(String id, String nombre, String descripcion, Date finalizacion, int complejidad) {
 		super(id, nombre, descripcion, finalizacion, complejidad);
-		es
-		// TODO Auto-generated constructor stub
+		
 	}
+	public int calculaEstimacion(){
+		int estimacion = 0;
+		if(getLdependencias().first() != null)
+			estimacion = (int) (getLdependencias().first().getComplejidad()*0.1 + 0.9);
+		return getComplejidad() + estimacion;
+		
+	}
+	
 }

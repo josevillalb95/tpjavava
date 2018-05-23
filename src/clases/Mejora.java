@@ -17,5 +17,11 @@ public class Mejora extends Tarea{
 		super(id, nombre, descripcion, finalizacion, complejidad);
 		// TODO Auto-generated constructor stub
 	}
+	public double calculaEstimacion(){
+		int estimacion= getEstimacion();
+		int complejidad= getComplejidad();
+		return estimacion * 0.5 + complejidad;
+		
+	}
 
 }
