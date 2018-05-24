@@ -33,6 +33,11 @@ public final class Index extends JPanel {
 		add(btnABMTareas);
 		
 		JButton btnAdmin = new JButton("Administracion");
+		btnAdmin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				InterfazGrafica.getInstance().abrirAdminSprints();
+			}
+		});
 		btnAdmin.setBounds(268, 218, 116, 23);
 		add(btnAdmin);
 

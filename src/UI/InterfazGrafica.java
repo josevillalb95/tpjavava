@@ -17,6 +17,7 @@ public final class InterfazGrafica {
 	private Index index = new Index();
 	private ABMSprints abms = new ABMSprints();
 	private ABMTareas abmt = new ABMTareas();
+	private AdminSprints admins = new AdminSprints();
 	private CardLayout cl = new CardLayout();
 	
 	private static InterfazGrafica instance = null;
@@ -61,6 +62,14 @@ public final class InterfazGrafica {
 			frmScrum.getContentPane().add(panel);
 			frmScrum.revalidate();
 		}
+	
+	public void abrirAdminSprints(){
+		frmScrum.remove(panel);
+		panel = admins;
+		
+		frmScrum.getContentPane().add(panel);
+		frmScrum.revalidate();
+	}
 	
 	/**
 	 * Create the application.

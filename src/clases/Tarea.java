@@ -12,7 +12,7 @@ public class Tarea implements Comparable<Tarea> {
 
 	private String id, nombre, descripcion;
 	private Date fFin;
-	private Estado estado;
+	private EstadoTarea estado;
 	private ArrayList<Estado> Lhist; //Podria ser un Treeset para ordenarlos por fecha?
 	private int complejidad;
 	private TreeSet<Tarea> LSTareas;
@@ -27,7 +27,7 @@ public class Tarea implements Comparable<Tarea> {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fFin = finalizacion;
-		//this.estado = new ToDo();
+		this.estado = EstadoTarea.TODO;
 		this.LSTareas = null;
 		this.complejidad = complejidad;
 		Lhist =null;
@@ -70,7 +70,7 @@ public class Tarea implements Comparable<Tarea> {
 	}
 	
 	
-	public void modTarea( String nombre, String descripcion, Date finalizacion, Estado estado,int complejidad) {
+	public void modTarea( String nombre, String descripcion, Date finalizacion, EstadoTarea estado,int complejidad) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fFin = finalizacion;
@@ -105,7 +105,7 @@ public class Tarea implements Comparable<Tarea> {
 		return estimacion;
 	}
 	
-	public void TareaMOD(String nombre, String descripcion, Date finalizacion, Estado estado,int complejidad) {
+	public void TareaMOD(String nombre, String descripcion, Date finalizacion, EstadoTarea estado,int complejidad) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fFin = finalizacion;
