@@ -46,7 +46,7 @@ public class Tarea implements Comparable<Tarea> {
 	 * 
 	 * @param clave
 	 * @param tare
-	 * Modifica el valor de la clave del backglog.
+	 * Modifica el valor de la clave del backlog.
 	 * FALTA EL ESTADO :o !!! 
 	 */
 	public void mBacklogTarea(String clave , Tarea tare) {

@@ -18,7 +18,6 @@ public class SprintsTM extends AbstractTableModel{
 	
 	public SprintsTM(TreeSet<Sprint> lista) {
 		aSprints = new ArrayList<>(lista);
-		setValueAt("Clave", 0, 1);
 	}
 	
 	@Override

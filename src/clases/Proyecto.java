@@ -100,6 +100,20 @@ public final class Proyecto {
 			System.out.println(lt.getClave());
 		}
 	}
+
+	public TreeSet<Tarea> getTareasSprintEnCurso() {
+		Sprint sp = null;
+		boolean bandera = true;
+		Iterator<Sprint> it = LSprints.iterator();
+		while(it.hasNext() && bandera)
+			sp = it.next();
+			if(sp.getEstado() == EstadoSprint.ENCURSO)
+				bandera = false;
+		if (bandera)
+			return null;
+		else
+			return sp.getListaT();
+	}
 	
 	
 }

@@ -39,6 +39,7 @@ public class ABMSprints extends JPanel {
 		table.setBounds(10, 31, 330, 191);
 		add(table);
 		table.setModel(new SprintsTM(Proyecto.getInstance().getLSprints()));
+		table.setAutoscrolls(true);
 		
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
@@ -134,7 +135,9 @@ public class ABMSprints extends JPanel {
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LimpiaCampos();
-				panelAM.setVisible(false);			}
+				panelAM.setVisible(false);
+				txtClave.setEnabled(true);
+				}
 		});
 		panelAM.add(btnCancelar);
 		

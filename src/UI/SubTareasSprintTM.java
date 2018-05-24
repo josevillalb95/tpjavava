@@ -1,27 +1,29 @@
+/**
+ * 
+ */
 package UI;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 
-import javax.swing.table.AbstractTableModel;
-
 import clases.Tarea;
 
-public class TareasTM extends AbstractTableModel{
-	
+/**
+ * @author tomi_
+ *
+ */
+public class SubTareasSprintTM {
 	private List<Tarea> aTareas;
 
-	public TareasTM(TreeSet<Tarea> lista) {
+	public SubTareasSprintTM(TreeSet<Tarea> lista) {
 		aTareas = new ArrayList<>(lista);
 	}
 
-	@Override
 	public int getColumnCount() {
 		return 5;
 	}
 
-	@Override
 	public int getRowCount() {
 		return aTareas.size();
 	}
@@ -30,7 +32,6 @@ public class TareasTM extends AbstractTableModel{
 		this.aTareas = new ArrayList<>(aTareas);
 	}
 
-	@Override
 	public Object getValueAt(int row, int column) {
 		Tarea tar = aTareas.get(row);
 		Object ob = null;
@@ -47,5 +48,4 @@ public class TareasTM extends AbstractTableModel{
 		}
 		return ob;
 	}
-
 }

@@ -69,6 +69,7 @@ public final class InterfazGrafica {
 		
 		frmScrum.getContentPane().add(panel);
 		frmScrum.revalidate();
+		admins.cargarTablas();
 	}
 	
 	/**

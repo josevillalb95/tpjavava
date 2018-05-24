@@ -1,6 +1,9 @@
 package UI;
 
 import javax.swing.JPanel;
+
+import clases.Proyecto;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

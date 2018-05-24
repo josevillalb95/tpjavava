@@ -9,41 +9,51 @@ public enum EstadoTarea {
 	DONE;
 	
 	public EstadoTarea next(){
+		EstadoTarea estado;
 		switch (this){
 		case TODO:
-			return INPROGRESS;
+			estado = INPROGRESS;
 		case INPROGRESS:
-			return PENDINGTOBUILD;
+			estado = PENDINGTOBUILD;
 		case PENDINGTOBUILD:
-			return READYTOTEST;
+			estado = READYTOTEST;
 		case READYTOTEST:
-			return TESTING;
+			estado = TESTING;
 		case TESTING:
-			return DONE;
+			estado = DONE;
 		case DONE:
-			return null;
+			estado = null;
 		default:
-			return null;
+			estado = null;
 		}
+		return estado;
 	}
 	
 	public EstadoTarea previous(){
+		EstadoTarea estado;
 		switch (this){
 		case TODO:
-			return null;
+			estado = null;
+			break;
 		case INPROGRESS:
-			return null;
+			estado = null;
+			break;
 		case PENDINGTOBUILD:
-			return TODO;
+			estado = TODO;
+			break;
 		case READYTOTEST:
-			return null;
+			estado = null;
+			break;
 		case TESTING:
-			return TODO;
+			estado = TODO;
+			break;
 		case DONE:
-			return null;
+			estado = null;
+			break;
 		default:
-			return null;
+			estado = null;
 		}
+		return estado;
 	}
 	
 }
