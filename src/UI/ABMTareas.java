@@ -18,6 +18,7 @@ import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JSpinner;
 import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
 
 public class ABMTareas extends JPanel {
 	private JTable table;
@@ -45,21 +46,25 @@ public class ABMTareas extends JPanel {
 		lblTareas.setBounds(76, 0, 127, 25);
 		add(lblTareas);
 		
+		JLabel lblBacklog = new JLabel("Backlog:");
+		lblBacklog.setBounds(20, 36, 46, 14);
+		add(lblBacklog);
+		
 		table = new JTable();
-		table.setBounds(20, 30, 330, 191);
+		table.setBounds(20, 47, 330, 174);
 		add(table);
 		table.setModel(new TareasTM(Proyecto.getInstance().getBlog().getLTareasP()));
 		
 		JButton btnAgregar = new JButton("Agregar");
-		btnAgregar.setBounds(360, 49, 89, 23);
+		btnAgregar.setBounds(360, 89, 89, 23);
 		add(btnAgregar);
 		
 		JButton btnModificar = new JButton("Modificar");
-		btnModificar.setBounds(360, 108, 89, 23);
+		btnModificar.setBounds(360, 123, 89, 23);
 		add(btnModificar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
-		btnEliminar.setBounds(360, 173, 89, 23);
+		btnEliminar.setBounds(360, 157, 89, 23);
 		add(btnEliminar);
 		
 		JPanel panel = new JPanel();
@@ -113,6 +118,21 @@ public class ABMTareas extends JPanel {
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		panel.add(btnCancelar);
+		
+		JButton btnAsignarASprint = new JButton("Asignar a Sprint");
+		btnAsignarASprint.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame tarensp = new JFrame();
+				tarensp.setBounds(100, 100, 350, 350);
+				
+				ABMTareasEnSprint abmts = new ABMTareasEnSprint(Proyecto.getInstance().getBlog().getTarea(table.getValueAt(table.getSelectedRow(), 0).toString()));
+				tarensp.getContentPane().add(abmts);
+				tarensp.setVisible(true);
+				abmts.setVisible(true);
+			}
+		});
+		btnAsignarASprint.setBounds(352, 11, 117, 23);
+		add(btnAsignarASprint);
 
 	}
 }

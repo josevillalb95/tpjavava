@@ -100,6 +100,10 @@ public final class Proyecto {
 			System.out.println(lt.getClave());
 		}
 	}
+	
+	public Sprint getSprint(String clave){
+		LSprints.
+	}
 
 	public TreeSet<Tarea> getTareasSprintEnCurso() {
 		Sprint sp = null;

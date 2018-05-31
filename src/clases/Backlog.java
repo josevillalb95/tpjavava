@@ -4,6 +4,7 @@
 package clases;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.TreeSet;
 
 import estadosTareas.Estado;
@@ -90,6 +91,28 @@ public class Backlog {
 			}
 		}
 	}
+	
+	
+	/**
+	 * Retorna la tarea con el id inicado por parametro
+	 * @param id
+	 * @return
+	 */
+	public Tarea getTarea(String id){
+		boolean bandera = false;
+		Iterator<Tarea> it = LTareasP.iterator();
+		Tarea tar = null;
+		while (it.hasNext() && !bandera){
+			tar = it.next();
+			if(tar.getId().equals(id))
+				bandera = true;
+		}
+		if (bandera)
+			return tar;
+		else
+			return null;
+	}
+	
 	/**
 	 * 
 	 * @param clave
