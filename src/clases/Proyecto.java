@@ -101,9 +101,9 @@ public final class Proyecto {
 		}
 	}
 	
-	public Sprint getSprint(String clave){
+	/*public Sprint getSprint(String clave){
 		LSprints.
-	}
+	}*/
 
 	public TreeSet<Tarea> getTareasSprintEnCurso() {
 		Sprint sp = null;
