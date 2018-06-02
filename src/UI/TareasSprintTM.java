@@ -9,7 +9,7 @@ import java.util.TreeSet;
 
 import javax.swing.table.AbstractTableModel;
 
-import clases.Tarea;
+import Tareas.Tarea;
 
 /**
  * @author tomi_

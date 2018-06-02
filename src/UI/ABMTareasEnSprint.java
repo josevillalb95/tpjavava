@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 
 import clases.Proyecto;
-import clases.Tarea;
+import Tareas.Tarea;
 
 import javax.swing.JLabel;
 import java.awt.Font;

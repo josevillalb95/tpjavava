@@ -7,7 +7,7 @@ import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import clases.Backlog;
+import BackLogs.Backlog;
 import clases.Proyecto;
 
 import javax.swing.JComboBox;

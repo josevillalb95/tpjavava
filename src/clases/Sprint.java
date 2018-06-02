@@ -2,6 +2,9 @@ package clases;
 
 import java.util.Date;
 import java.util.TreeSet;
+
+import Tareas.Tarea;
+
 import java.time.LocalDate;
 
 public class Sprint implements Comparable<Sprint>{
@@ -63,8 +66,8 @@ public class Sprint implements Comparable<Sprint>{
 	public void mSprintTarea(String clave , Tarea tare) {
 		for(Tarea c:LTareas ){
 			if(c.getId().equals(clave)){
-				if(c.getEstado() != "finalizado" )
-					c.modTarea(tare.getNombre(),tare.getDescripcion() ,tare.getfFin(), tare.getEstado(), tare.getComplejidad());
+				//if(c.getEstado() != "finalizado" )
+					//c.modTarea(tare.getNombre(),tare.getDescripcion() ,tare.getfFin(), tare.getEstado(), tare.getComplejidad());
 			}
 		}
 		
@@ -109,7 +112,7 @@ public class Sprint implements Comparable<Sprint>{
 	 * @param fi
 	 * @param ff
 	 */
-	public void comenzar(Date fi,Date ff){
+	public void comenzar(LocalDate fi,LocalDate ff){
 		estado = EstadoSprint.ENCURSO;
 		fInicio = fi;
 		fFin = ff;

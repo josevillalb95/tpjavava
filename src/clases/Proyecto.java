@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.TreeSet;
 
+import BackLogs.Backlog;
+import Tareas.Tarea;
 import UI.InterfazGrafica;
 import estadosTareas.Estado;
 import java.time.LocalDate;

@@ -13,7 +13,7 @@ import javax.swing.table.TableModel;
 
 import com.sun.xml.internal.ws.api.message.Message;
 
-import clases.Backlog;
+import BackLogs.Backlog;
 import clases.Proyecto;
 
 import javax.swing.JComboBox;

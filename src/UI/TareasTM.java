@@ -6,11 +6,13 @@ import java.util.TreeSet;
 
 import javax.swing.table.AbstractTableModel;
 
-import clases.Tarea;
+import Tareas.Tarea;
+
+
 
 public class TareasTM extends AbstractTableModel{
 	
-	private List<Tarea> aTareas;
+	private List<Tareas.Tarea> aTareas;
 
 	public TareasTM(TreeSet<Tarea> lista) {
 		aTareas = new ArrayList<>(lista);
