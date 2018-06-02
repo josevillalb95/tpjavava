@@ -8,6 +8,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import BackLogs.Backlog;
+import Tareas.EstadoTarea;
 import clases.Proyecto;
 
 import javax.swing.JComboBox;
@@ -109,7 +110,7 @@ public class ABMTareas extends JPanel {
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Proyecto.getInstance().getBlog().altaTarea(cbTipo.getSelectedItem().toString(),txtId.getText(),txtNombre.getText(),txtDescripcion.getText(),new Date(),Integer.parseInt(cbComplejidad.getSelectedItem().toString()));
+				Proyecto.getInstance().getBlog().altaTarea(cbTipo.getSelectedItem().toString(),txtId.getText(),txtNombre.getText(),txtDescripcion.getText(),EstadoTarea.DONE,null,Integer.parseInt(cbComplejidad.getSelectedItem().toString()));
 				table.setModel(new TareasTM(Proyecto.getInstance().getBlog().getLTareasP()));
 						
 			}

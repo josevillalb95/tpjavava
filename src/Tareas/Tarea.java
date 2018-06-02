@@ -1,8 +1,10 @@
 package Tareas;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.Scanner;
 import java.util.TreeSet;
 
 import estadosTareas.Estado;
@@ -11,7 +13,7 @@ import estadosTareas.ToDo;
 public class Tarea implements Comparable<Tarea> {
 
 	private String id, nombre, descripcion;
-	private Date fFin;
+	private LocalDate fFin;
 	private EstadoTarea estado;
 	private ArrayList<Estado> Lhist; //Podria ser un Treeset para ordenarlos por fecha?
 	private int complejidad;
@@ -20,17 +22,18 @@ public class Tarea implements Comparable<Tarea> {
 	private TreeSet<Tarea> Ldependencias;
 	private TreeSet<Tarea> LSubtareas;
 	
-	public Tarea(String id, String nombre, String descripcion, Date finalizacion,
+	public Tarea(String id, String nombre, String descripcion,EstadoTarea e, LocalDate finalizacion,
 			int complejidad) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fFin = finalizacion;
-		this.estado = EstadoTarea.TODO;
-		this.LSTareas = null;
+		//this.estado = EstadoTarea.TODO;
+		this.estado = e;
+		//this.LSTareas = null;
 		this.complejidad = complejidad;
-		Lhist =null;
+		//Lhist =null;
 	}
 	public TreeSet<Tarea> getListaS() {
 		return LSTareas;
@@ -70,7 +73,7 @@ public class Tarea implements Comparable<Tarea> {
 	}
 	
 	
-	public void modTarea( String nombre, String descripcion, Date finalizacion, EstadoTarea estado,int complejidad) {
+	public void modTarea( String nombre, String descripcion, LocalDate finalizacion, EstadoTarea estado,int complejidad) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fFin = finalizacion;
@@ -89,7 +92,7 @@ public class Tarea implements Comparable<Tarea> {
 	public String getDescripcion() {
 		return descripcion;
 	} 
-	public Date getfFin() {
+	public LocalDate getfFin() {
 		return fFin;
 	} 
 	public String getEstado() {
@@ -105,7 +108,7 @@ public class Tarea implements Comparable<Tarea> {
 		return estimacion;
 	}
 	
-	public void TareaMOD(String nombre, String descripcion, Date finalizacion, EstadoTarea estado,int complejidad) {
+	public void TareaMOD(String nombre, String descripcion, LocalDate finalizacion, EstadoTarea estado,int complejidad) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fFin = finalizacion;
@@ -176,6 +179,7 @@ public class Tarea implements Comparable<Tarea> {
 	public int compareTo(Tarea arg0) {
 		return this.id.compareTo(arg0.getId());
 	}
+
 
 	/*
 	 * @Override public int compare(Object o1, Object o2) { // TODO

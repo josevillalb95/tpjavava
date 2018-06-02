@@ -18,7 +18,7 @@ public class Sprint implements Comparable<Sprint>{
 		this.clave = clave;
 		this.descripcion = descripcion;
 		this.estado = EstadoSprint.PLANIFICADO;
-		this.LTareas = null;
+		this.LTareas = new TreeSet<Tarea>();
 	}
 	
 	/**

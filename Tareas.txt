@@ -1,0 +1,30 @@
+HIS001-Login-Login de la aplicación con usuario y contraseña.-DONE-3- -TAR004,TAR005- -Usuario inválido,6,Contraseña inválida,8,Usuario y contraseña inexistente,10,Usuario y contraseña correctos,12,/
+HIS002-Listado de estrenos-Listado de películas estrenadas en las últimas dos semanas.-DONE-8-TAR003-TAR006-23/5/2018-Solicitar listado,15,Actualizar listado,15,Navegar listado,12,/
+HIS003-Listado de vistos-Listado de películas ya vistas.-DONE-6- -TAR007-01/6/2018-Solicitar listado,12,Listado vacío,6,Navegar listado,12,/
+HIS004-Mi lista-Listado de películas guardadas en la lista personal del usuario.-DONE-7- -TAR008,TAR009-14/5/2018-Solicitar listado,15,Listado vacío,6,Navegar listado,12,/
+HIS005-Agregar a mi lista-Agregar película a la lista personal del usuario.-DONE-3-HIS004- -28/5/2018-Agregar película a mi lista,11,Agregar película ya agregada,8,/
+HIS006-Quitar de mi lista-Remover película de la lista personal del usuario.-TODO-3-HIS004,HIS005- - -Remover película de mi lista,13,Cancelar remoción,8,/
+HIS007-Ver película-Reproducir la película seleccionada.-IN PROGRESS-8-TAR001,HIS004,HIS005-TAR013,TAR014- -Reproducir desde el inicio,22,Reanudar película,18,Selección de subtítulo,12,Selección de idioma,15,Selección de escena,34,/
+HIS008-Pausar película-Pausar la película en curso.-TODO-4-HIS007- - -Pausar y guardar los estados,12,/
+HIS009-Detener película-Quitar la película en curso.-TODO-4-HIS008-TAR011- -Detener y guardar los estados,15,/
+TAR001-Sistema de caché-Cacheo de datos y estado de películas reproducidas.-DONE-5- - -	18/5/2018-/
+TAR002-Configuración de servidor Web-Configuración de componentes, puertos y parámetros para servidor de producción.-DONE-6- -TAR010-25/5/2018-/
+TAR003-Sistema de actualización de estrenos-Sistema de consulta con servidor externo para la actualización de estrenos de la base de datos.-DONE-5- - -14/5/2018-/
+TAR004-Validación de formato de contraseña-Validación de que el formato de contraseña introducido cumple con las normas.-DONE-0- - -09/5/2018-/
+TAR005-Validación de usuario y contraseña-Validación con la base de datos del par usuario/contraseña.-DONE-0- - -10/5/2018-/
+TAR006-Consulta de listado de estrenos-Consulta a la base de datos para adquirir el listado de estrenos.-DONE-0- - -18/5/2018-/
+TAR007-Consulta de listado de vistos-Consulta a la base de datos para adquirir el listado de películas vistas.-DONE-0- - -31/5/2018-/
+TAR008-Consulta de listado de mis películas-Consulta a la base de datos para adquirir el listado de películas en la lista del usuario.-DONE-0- - -11/5/2018-/
+TAR009-Filtrado de películas vistas-Filtrado de películas ya vistas de mi lista.-DONE-0- - -14/5/2018-/
+TAR010-Configuración de DNS y puertos-Registro y configuración de DNS y puertos para acceso al servidor.-DONE-0- - -18/5/2018-/
+TAR011-Guardado de estado de película-Registro del estado actual de la película (avance) previo a la detención de la misma.-TODO-0- - - -/
+TAR012-Separar actualización en hilos-Separar los procesos de actualización para ejecutarlos en varios hilos.-TODO-0- - - -/
+TAR013-Selección y cambio de audio-Seleccionar el audio de la película según el idioma elegido por el usuario.-READY TO TEST-0- - - -/
+TAR014-Carga de subtítulos-Cargar subtítulos según el idioma de subtítulos elegido por el usuario.-TESTING-0- - - -/
+BUG001-Longitud de contraseña-La longitud de la contraseña no se está validando y puede superar los 8 caracteres.-TODO-1-HIS001- - -/
+BUG002-Mi lista de películas incompleta-Si el número de películas de mi lista es mayor a 10 la lista viene incompleta.-IN PROGRESS-2-HIS004- - -/
+BUG003-Películas no completadas figuran como vistas-Las películas comenzadas pero no completadas figuran como vistas.-TODO-3-HIS003- - -/
+BUG004-Agregar a mi lista duplica la película-Al agregar una película a mi lista se agrega por duplicado.-PENDING TO BUILD-1-HIS005- - -/
+MEJ001-Ocultar password-Ocultar los caracteres que se ingresan en el campo de contraseña en el login.-TODO-1-HIS001- - -/
+MEJ002-Velocidad de actualización de estrenos-Mejorar la velocidad del proceso que consulta y actualiza los estrenos en la base de datos.-IN PROGRESS-5-TAR003-TAR012- -/
+MEJ003-Orden cronológico de películas vistas-Ordenar las películas vistas de manera descendente.-TODO-3-HIS003- - -/

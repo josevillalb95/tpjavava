@@ -106,7 +106,36 @@ public final class Proyecto {
 	/*public Sprint getSprint(String clave){
 		LSprints.
 	}*/
-
+	
+	public void agregarTareasSprint(String idS,String idT){
+		Iterator<Sprint>it=LSprints.iterator();
+		Sprint sp=null;
+		boolean bandera=true;
+		while(it.hasNext() && bandera){
+			sp=it.next();
+			if(sp.getClave().equals(idS)){
+				//sp.aSprintTarea(t);
+				bandera=false;
+			}
+		}
+		Iterator<Tarea>it1=blog.getLTareasP().iterator();
+		Tarea tar=null;
+		bandera=true;
+		while(it1.hasNext() && bandera){
+			tar=it1.next();
+			if(tar.getId().equals(idT)){
+				sp.aSprintTarea(tar);
+				bandera=false;
+			}
+			
+		}
+	}
+	public void cargarTareas(){
+		blog.cargaListaTareas();
+	}
+	public void mostrarTareas(){
+		blog.muestraTareas();
+	}
 	public TreeSet<Tarea> getTareasSprintEnCurso() {
 		Sprint sp = null;
 		boolean bandera = true;

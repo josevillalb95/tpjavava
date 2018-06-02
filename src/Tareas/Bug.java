@@ -3,6 +3,7 @@
  */
 package Tareas;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import com.sun.org.apache.bcel.internal.generic.LSUB;
@@ -15,8 +16,8 @@ import estadosTareas.Estado;
  */
 public class Bug extends Tarea{
 	
-	public Bug(String id, String nombre, String descripcion, Date finalizacion, int complejidad) {
-		super(id, nombre, descripcion, finalizacion, complejidad);
+	public Bug(String id, String nombre, String descripcion,EstadoTarea est, LocalDate finalizacion, int complejidad) {
+		super(id, nombre, descripcion, est,finalizacion, complejidad);
 		
 	}
 	public int calculaEstimacion(){
