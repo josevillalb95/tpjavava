@@ -224,4 +224,66 @@ public final class Proyecto {
 	public void eliminarSubT(String idT,String idSubT){
 		blog.bajaSubTarea(idT, idSubT);
 	}
+	public void cambiarEstadoSprint(String idSprint,String estado){
+		
+		Iterator<Sprint>it=LSprints.iterator();
+		Sprint sp=null;
+		boolean bandera=true;
+		while(it.hasNext() && bandera){
+			sp=it.next();
+			if(sp.getEstado().toString().equals("ENCURSO"))
+				bandera=false;
+		}
+		Sprint s=devuelveSprint(idSprint);
+		if(bandera)
+			s.cambiarEstado(estado);
+		else
+			System.out.println("Ya hay un sprint en curso");
+	}
+	
+	public Sprint devuelveSprint(String idSprint){
+		Iterator<Sprint>it=LSprints.iterator();
+		Sprint sp=null;
+		boolean bandera=true;
+		while(it.hasNext() && bandera){
+			sp=it.next();
+			if(sp.getClave().compareTo(idSprint)==0){
+				bandera=false;
+			}
+		}
+		return sp;
+	}
+	public void sprintEnCurso(String idSprint, LocalDate fi,LocalDate ff){
+		Sprint s=devuelveSprint(idSprint);
+		s.comenzar(fi, ff);
+	}
+	
+	public void avance(String idSprint){
+		Sprint s=devuelveSprint(idSprint);
+		//LocalDate fecha=s.getfInicio().plusDays(1);
+		if(s.getEstado().toString().equals("ENCURSO")){
+			LocalDate fecha=s.getfAvance().plusDays(1);
+			int avance=(int)s.getfInicio().until(fecha, ChronoUnit.DAYS);
+			s.setAvance();
+			s.setfAvance(fecha);
+			System.out.println(s.getfAvance());
+			if(fecha.equals(s.getFechaFin())){
+				s.cambiarEstado("finalizado");
+				System.out.println(s.estimacionSprint());
+				System.out.println(s.estimacionHistoriaSprint());
+			}
+		}
+		else
+			System.out.println("El sprint ya esta finalizado");
+	}
+	
+	public int cantAvance(String id){
+		Sprint s=devuelveSprint(id);
+		return s.getAvance();
+	}
+	
+	public int calcularDuracion(String idSprint){
+		Sprint s=devuelveSprint(idSprint);
+		return s.duracion()+1;
+	}
 }

@@ -7,12 +7,14 @@ import java.util.TreeSet;
 import Tareas.Tarea;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Sprint implements Comparable<Sprint>{
 	
 	private	String clave, descripcion;
 	private EstadoSprint estado;
-	private LocalDate fInicio , fFin;
+	private LocalDate fInicio , fFin,fAvance;
+	private int avance,duracion;
 	private TreeSet<Tarea> LTareas;
 	
 	public Sprint(String clave, String descripcion) {
@@ -114,11 +116,13 @@ public class Sprint implements Comparable<Sprint>{
 	 * @param ff
 	 */
 	public void comenzar(LocalDate fi,LocalDate ff){
-		estado = EstadoSprint.ENCURSO;
+		//estado = EstadoSprint.ENCURSO;
 		fInicio = fi;
 		fFin = ff;
+		fAvance=fInicio;
+		avance=1;
 		//Cantidad de dias de duracion y avance no se saca automaticamente?
-	}
+		}
 	
 	/**
 	 * Finaliza el Sprint.
@@ -173,5 +177,50 @@ public class Sprint implements Comparable<Sprint>{
 			System.out.println(tar.getId());
 		}
 	}
+	
+	
+	public LocalDate getfInicio() {
+		return fInicio;
+	}
+
+	public LocalDate getfAvance() {
+		return fAvance;
+	}
+
+	public void setfAvance(LocalDate fa) {
+		this.fAvance = fa;
+	}
+
+	public int getAvance() {
+		return avance;
+	}
+
+	public void setAvance() {
+		avance+=1;
+	}
+	public int duracion(){
+		int cant=(int)fInicio.until(fFin, ChronoUnit.DAYS);
+		duracion=cant;
+		return cant;
+	}
+	
+	public void cambiarEstado(String est){
+		EstadoSprint e=null;
+		switch(est){
+		case"planificado":
+			e=EstadoSprint.PLANIFICADO;
+			break;
+		case"en curso":
+			e=EstadoSprint.ENCURSO;
+			break;
+		case"finalizado":
+			e=EstadoSprint.FINALIZADO;
+			break;
+		}
+		estado=e;
+	}
+
+
+		
 	
 }

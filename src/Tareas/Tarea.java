@@ -9,6 +9,7 @@ import java.util.TreeSet;
 
 import estadosTareas.Estado;
 import estadosTareas.ToDo;
+import historial.Historial;
 
 public class Tarea implements Comparable<Tarea> {
 
@@ -21,6 +22,7 @@ public class Tarea implements Comparable<Tarea> {
 	private int estimacion; //Conviene sacar valor en Constructor o en otra funcion?
 	private TreeSet<Tarea> Ldependencias;
 	private TreeSet<Tarea> LSubtareas;
+	private Historial historialEstados;
 	
 	public Tarea(String id, String nombre, String descripcion,EstadoTarea e, LocalDate finalizacion,
 			int complejidad) {

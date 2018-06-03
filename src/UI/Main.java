@@ -4,6 +4,8 @@
 package UI;
 
 import java.awt.EventQueue;
+import java.time.LocalDate;
+import java.time.Month;
 
 import backLogs.Backlog;
 import clases.Proyecto;
@@ -83,6 +85,30 @@ public class Main {
 		//proy.eliminarSubT("HIS001", "TAR005");
 		//proy.eliminarDependencia("HIS006", "HIS004");
 		//proy.mostrarTareas();
+		
+		LocalDate fi=LocalDate.of(2018,Month.MAY, 15);
+		LocalDate ff=LocalDate.of(2018, Month.MAY, 28);
+		proy.cambiarEstadoSprint("SPR002","en curso");
+		proy.sprintEnCurso("SPR002", fi, ff);
+		System.out.println("Duracion:"+proy.calcularDuracion("SPR002"));
+		//System.out.println("Avance:"+);
+		
+		proy.avance("SPR002");
+		proy.avance("SPR002");
+		proy.avance("SPR002");
+		proy.avance("SPR002");
+		proy.avance("SPR002");
+		proy.avance("SPR002");
+		proy.avance("SPR002");
+		proy.avance("SPR002");
+		proy.avance("SPR002");
+		proy.avance("SPR002");
+		proy.avance("SPR002");
+		proy.avance("SPR002");
+		//proy.avance("SPR002");
+		//proy.avance("SPR002");
+		System.out.println(proy.cantAvance("SPR002"));
+		proy.cambiarEstadoSprint("SPR001", "en curso");
 		proy.corrersp();
 
 		EventQueue.invokeLater(new Runnable() {
