@@ -55,13 +55,18 @@ public class ABMSprints extends JPanel {
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				accion = 2;
-				panelAM.setVisible(true);
-				txtClave.setText(table.getValueAt(table.getSelectedRow(), 0).toString());
-				txtClave.setEnabled(false);
-				txtDescripcion.setText(table.getValueAt(table.getSelectedRow(), 1).toString());
-				table.setEnabled(false);
-				
+				try{
+					accion = 2;
+					panelAM.setVisible(true);
+					txtClave.setText(table.getValueAt(table.getSelectedRow(), 0).toString());
+					txtClave.setEnabled(false);
+					txtDescripcion.setText(table.getValueAt(table.getSelectedRow(), 1).toString());
+					table.setEnabled(false);
+					btnModificar.setEnabled(false);
+				}catch(ArrayIndexOutOfBoundsException e){
+					JOptionPane.showMessageDialog(null, "Debe existir seleccionar un Sprint a modificar.", "Error", JOptionPane.ERROR_MESSAGE);
+					panelAM.setVisible(false);
+				}
 			}
 		});
 		btnModificar.setBounds(350, 109, 89, 23);
@@ -130,6 +135,7 @@ public class ABMSprints extends JPanel {
 						txtClave.setEnabled(true);
 						Proyecto.getInstance().modificacionSprint(txtClave.getText(), txtDescripcion.getText());
 						JOptionPane.showMessageDialog(null, "Sprint modificado con exito.");
+						btnModificar.setEnabled(true);
 					}
 				table.setModel(new SprintsTM(Proyecto.getInstance().getLSprints()));
 				Proyecto.getInstance().corrersp();

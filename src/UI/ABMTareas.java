@@ -8,6 +8,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import Tareas.EstadoTarea;
+import Tareas.Tarea;
 import backLogs.Backlog;
 import clases.Proyecto;
 
@@ -26,6 +27,11 @@ public class ABMTareas extends JPanel {
 	private JTextField txtId;
 	private JTextField txtNombre;
 	private JTextField txtDescripcion;
+	JComboBox cbComplejidad = new JComboBox();
+	JComboBox cbTipo = new JComboBox();
+	JPanel panel = new JPanel();
+	
+	private int accion = 0;
 
 	/**
 	 * Create the panel.
@@ -57,27 +63,55 @@ public class ABMTareas extends JPanel {
 		table.setModel(new TareasTM(Proyecto.getInstance().getBlog().getLTareasP()));
 		
 		JButton btnAgregar = new JButton("Agregar");
+		btnAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				accion = 1;
+			}
+		});
 		btnAgregar.setBounds(360, 89, 89, 23);
 		add(btnAgregar);
 		
 		JButton btnModificar = new JButton("Modificar");
+		btnModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				accion = 2;
+				Tarea tar = Proyecto.getInstance().getBlog().getTarea(table.getValueAt(table.getSelectedRow(), 0).toString());
+				txtId.setText(tar.getId());
+				txtNombre.setText(tar.getNombre());
+				txtDescripcion.setText(tar.getDescripcion());
+				cbComplejidad.setSelectedIndex(tar.getComplejidad()-1);
+				
+				txtId.setEnabled(false);
+				btnModificar.setEnabled(false);
+				Proyecto.getInstance().getBlog().bajaTarea(tar.getId());
+				
+			}
+		});
 		btnModificar.setBounds(360, 123, 89, 23);
 		add(btnModificar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnEliminar.setBounds(360, 157, 89, 23);
 		add(btnEliminar);
 		
-		JPanel panel = new JPanel();
 		panel.setBounds(20, 226, 430, 101);
 		add(panel);
 		
 		JLabel lblTipo = new JLabel("Tipo");
 		panel.add(lblTipo);
 		
-		JComboBox cbTipo = new JComboBox();
 		cbTipo.setModel(new DefaultComboBoxModel(new String[] {"Tarea", "Bug", "Historia", "Mejora"}));
 		panel.add(cbTipo);
+		
+		JLabel lblComplejidad = new JLabel("Complejidad");
+		panel.add(lblComplejidad);
+		
+		cbComplejidad.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3"}));
+		panel.add(cbComplejidad);
 		
 		JLabel lblId = new JLabel("Id");
 		panel.add(lblId);
@@ -100,17 +134,13 @@ public class ABMTareas extends JPanel {
 		txtDescripcion.setColumns(10);
 		panel.add(txtDescripcion);
 		
-		JLabel lblComplejidad = new JLabel("Complejidad");
-		panel.add(lblComplejidad);
-		
-		JComboBox cbComplejidad = new JComboBox();
-		cbComplejidad.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3"}));
-		panel.add(cbComplejidad);
-		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				txtId.setEnabled(true);
+				btnModificar.setEnabled(true);
 				Proyecto.getInstance().getBlog().altaTarea(cbTipo.getSelectedItem().toString(),txtId.getText(),txtNombre.getText(),txtDescripcion.getText(),EstadoTarea.DONE,null,Integer.parseInt(cbComplejidad.getSelectedItem().toString()));
+
 				table.setModel(new TareasTM(Proyecto.getInstance().getBlog().getLTareasP()));
 						
 			}

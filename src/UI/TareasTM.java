@@ -41,11 +41,13 @@ public class TareasTM extends AbstractTableModel{
 			ob = tar.getId();
 			break;
 		case 1:
-			ob = tar.getDescripcion();
+			ob = tar.getNombre();
 			break;
 		case 2:
-			ob = tar.getEstado();
+			ob = tar.getDescripcion();
 			break;
+		case 3:
+			ob = tar.getEstado();
 		}
 		return ob;
 	}

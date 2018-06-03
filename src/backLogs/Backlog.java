@@ -76,6 +76,22 @@ public class Backlog {
 		LTareasP.add(tar);
 	}
 	
+	/**
+	 * Busca tarea con el id pasado como parametro y la retorna
+	 * @param id
+	 * @return
+	 */
+	public Tarea buscaTarea(String id){
+		Iterator<Tarea>it = LTareasP.iterator();
+		Tarea tar = null;
+		boolean bandera = false;
+		while(it.hasNext() && !bandera){
+			tar= it.next();
+			if(tar.getId().equals(id))
+				bandera = true;
+		}
+		return tar;
+	}
 
 	/**
 	 * 
