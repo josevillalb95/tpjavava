@@ -126,6 +126,7 @@ public final class Proyecto {
 			tar=it1.next();
 			if(tar.getId().equals(idT)){
 				sp.aSprintTarea(tar);
+				//blog.bajaTarea(tar.getId());
 				bandera=false;
 			}
 			
@@ -171,6 +172,21 @@ public final class Proyecto {
 			sp=it.next();
 			if(sp.getClave().equals(idSprint)){
 				estimacion=sp.estimacionSprint();
+				bandera=false;
+			}
+		}
+		return estimacion;
+	}
+	
+	public int calcularEstimacionHistoriaSprint(String idSprint){
+		Sprint sp=null;
+		boolean bandera=true;
+		Iterator<Sprint> it = LSprints.iterator();
+		int estimacion=0;
+		while(it.hasNext() && bandera){
+			sp=it.next();
+			if(sp.getClave().equals(idSprint)){
+				estimacion=sp.estimacionHistoriaSprint();
 				bandera=false;
 			}
 		}

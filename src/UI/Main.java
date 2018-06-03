@@ -40,8 +40,8 @@ public class Main {
 		proy.agregarTareasSprint("SPR002", "HIS005");
 		proy.agregarTareasSprint("SPR002", "TAR002");
 		proy.agregarTareasSprint("SPR002", "TAR010");
-		proy.agregarTareasSprint("SPR002","MEJ002");
-		proy.agregarTareasSprint("SPR002","TAR012");
+		//proy.agregarTareasSprint("SPR002","MEJ002");
+		//proy.agregarTareasSprint("SPR002","TAR012");
 		
 		proy.agregarDependencias("HIS002","TAR003");
 		proy.agregarDependencias("HIS005","HIS004");
@@ -75,12 +75,14 @@ public class Main {
 		
 		System.out.println("Estimacion SPR001:"+proy.calcularEstimacionSprint("SPR001"));
 		System.out.println("Estimacion SPR002:"+proy.calcularEstimacionSprint("SPR002"));
+		System.out.println("Estimacion historias SPR001:"+proy.calcularEstimacionHistoriaSprint("SPR001"));
+		System.out.println("Estimacion historias SPR002:"+proy.calcularEstimacionHistoriaSprint("SPR002"));
 		//proy.bajaSprint("SPR002");
 		//proy.bajaTareaSprint("SPR002", "TAR002");
 		//proy.bajaTareaBackLog("TAR008");
-		proy.eliminarSubT("HIS001", "TAR005");
-		proy.eliminarDependencia("HIS006", "HIS004");
-		proy.mostrarTareas();
+		//proy.eliminarSubT("HIS001", "TAR005");
+		//proy.eliminarDependencia("HIS006", "HIS004");
+		//proy.mostrarTareas();
 		proy.corrersp();
 
 		EventQueue.invokeLater(new Runnable() {

@@ -153,6 +153,18 @@ public class Sprint implements Comparable<Sprint>{
 		return est;
 	}
 	
+	public int estimacionHistoriaSprint(){
+		int est=0;
+		Iterator<Tarea> it = LTareas.iterator();
+		Tarea tar=null;
+		while(it.hasNext()){
+			tar=it.next();
+			if(tar.getId().substring(0,3).equals("HIS"))
+				est+=tar.estimacion();
+		}
+		return est;
+	}
+	
 	public void muestraTareasSprint(){
 		Iterator<Tarea> it = LTareas.iterator();
 		Tarea tar=null;
