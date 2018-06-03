@@ -13,8 +13,9 @@ import javax.swing.table.TableModel;
 
 import com.sun.xml.internal.ws.api.message.Message;
 
-import BackLogs.Backlog;
+import backLogs.Backlog;
 import clases.Proyecto;
+import clases.SprintNoValido;
 
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
@@ -69,7 +70,15 @@ public class ABMSprints extends JPanel {
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				try{
 				Proyecto.getInstance().bajaSprint(table.getModel().getValueAt(table.getSelectedRow(), 0).toString());
+				}
+				catch(ArrayIndexOutOfBoundsException e){
+					JOptionPane.showMessageDialog(null, "Debe existir seleccionar un Sprint a eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+				} catch (SprintNoValido e) {
+					JOptionPane.showMessageDialog(null, "No se pueden eliminar los Sprints EN CURSO o FINALIZADO.", "Error", JOptionPane.ERROR_MESSAGE);
+					e.printStackTrace();
+				}
 				table.setModel(new SprintsTM(Proyecto.getInstance().getLSprints()));
 			}
 		});

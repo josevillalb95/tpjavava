@@ -35,7 +35,7 @@ public class SprintsTM extends AbstractTableModel{
 	}
 
 	@Override
-	public Object getValueAt(int row, int column) {
+	public Object getValueAt(int row, int column) throws ArrayIndexOutOfBoundsException {
 		Sprint sp = aSprints.get(row);
 		Object ob = null;
 		switch (column) {

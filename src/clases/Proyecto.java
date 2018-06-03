@@ -7,9 +7,11 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.TreeSet;
 
-import BackLogs.Backlog;
+import javax.swing.plaf.OptionPaneUI;
+
 import Tareas.Tarea;
 import UI.InterfazGrafica;
+import backLogs.Backlog;
 import estadosTareas.Estado;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -64,24 +66,25 @@ public final class Proyecto {
 		return LSprints;
 	}
 	
-	public void bajaSprint(String clave){
+	public void bajaSprint(String clave) throws SprintNoValido{
 		boolean bandera = false;
 		Iterator<Sprint> it = LSprints.iterator();
-		Sprint sp = it.next();
-		while(!bandera && it.hasNext() && (sp.getClave().compareTo(clave)<=0)){
+		Sprint sp = null;
+		while(!bandera && it.hasNext()){
 			sp = it.next();
-			if(sp.getClave().equals(clave)){
-				if(sp.getEstado()==EstadoSprint.PLANIFICADO){
-/*					for(Tarea p: c.getListaT()){                               TRABAJAR CON LAS TAREAS
-						blog.getListaTB().add(p);
-					}*/
-					LSprints.remove(sp);
-					bandera = true;
+			if(sp.getClave().compareTo(clave)<=0){
+				if(sp.getClave().equals(clave)){
+					if(sp.getEstado()==EstadoSprint.PLANIFICADO){
+	/*					for(Tarea p: c.getListaT()){                               TRABAJAR CON LAS TAREAS
+							blog.getListaTB().add(p);
+						}*/
+						LSprints.remove(sp);
+						bandera = true;
+					}
+					else
+						throw new SprintNoValido();
 				}
 			}
-			else
-				System.out.println("No se puede eliminar un sprint en curso o finalizado");
-				
 		}
 	}
 	

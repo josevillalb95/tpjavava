@@ -1,4 +1,4 @@
-package BackLogs;
+package backLogs;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -163,14 +163,19 @@ public class Backlog {
 				switch(e){
 				case"ToDo":
 					est=EstadoTarea.TODO;
+					break;
 				case"InProgress":
 					est=EstadoTarea.INPROGRESS;
+					break;
 				case"PendingToBuild":
 					est=EstadoTarea.PENDINGTOBUILD;
+					break;
 				case"ReadyToTest":
 					est=EstadoTarea.READYTOTEST;
+					break;
 				case"Testing":
 					est=EstadoTarea.TESTING;
+					break;
 				case"Done":
 					est=EstadoTarea.DONE;
 				}
