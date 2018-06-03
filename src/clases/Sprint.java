@@ -1,6 +1,7 @@
 package clases;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.TreeSet;
 
 import Tareas.Tarea;
@@ -126,6 +127,39 @@ public class Sprint implements Comparable<Sprint>{
 	public void finalizar(){
 		estado = EstadoSprint.FINALIZADO;
 		//Trasladar Sprints sin terminar
+	}
+	
+	public void bajaTarea(String idT){
+		Iterator<Tarea>it=LTareas.iterator();
+		Tarea t=null;
+		boolean bandera=true;
+		while(it.hasNext() && bandera){
+			t=it.next();
+			if(t.getId().compareTo(idT)==0){
+				it.remove();
+				bandera=false;
+			}
+		}
+	}
+	
+	public int estimacionSprint(){
+		int est=0;
+		Iterator<Tarea> it = LTareas.iterator();
+		Tarea tar=null;
+		while(it.hasNext()){
+			tar=it.next();
+			est+=tar.estimacion();
+		}
+		return est;
+	}
+	
+	public void muestraTareasSprint(){
+		Iterator<Tarea> it = LTareas.iterator();
+		Tarea tar=null;
+		while(it.hasNext()){
+			tar=it.next();
+			System.out.println(tar.getId());
+		}
 	}
 	
 }

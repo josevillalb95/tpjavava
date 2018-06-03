@@ -24,5 +24,21 @@ public class Mejora extends Tarea{
 		return estimacion * 0.5 + complejidad;
 		
 	}
+	public void agregarDep(Tarea tar){
+		if(getLdependencias().isEmpty())
+			getLdependencias().add(tar);
+		else
+			System.out.println("Mejora puede tener una sola dependencia");
+	}
+	public int estimacion(){
+		Tarea t=null;
+		if(!getLdependencias().isEmpty()){
+			t=getLdependencias().first();
+			return getComplejidad()+(t.estimacion()/2);
+		}
+		else
+			return 0;		
+	}
+	
 
 }

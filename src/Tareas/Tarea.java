@@ -34,6 +34,8 @@ public class Tarea implements Comparable<Tarea> {
 		//this.LSTareas = null;
 		this.complejidad = complejidad;
 		//Lhist =null;
+		Ldependencias=new TreeSet<Tarea>();
+		LSubtareas=new TreeSet<Tarea>();
 	}
 	public TreeSet<Tarea> getListaS() {
 		return LSTareas;
@@ -44,6 +46,10 @@ public class Tarea implements Comparable<Tarea> {
 	
 	public TreeSet<Tarea> getLdependencias() {
 		return Ldependencias;
+	}
+	
+	public void setLdependencias(TreeSet<Tarea> ldependencias) {
+		Ldependencias = ldependencias;
 	}
 	/**
 	 * 
@@ -168,7 +174,46 @@ public class Tarea implements Comparable<Tarea> {
 			System.out.println(it.next().toString() + "\n");
 		}		
 	}
+	public void agregarSubT(Tarea tar){
+		if(tar.getId().substring(0, 3).equals("TAR") && tar.getComplejidad()==0)
+			LSubtareas.add(tar);
+		else
+			System.out.println("Las subtareas solo pueden ser de tipo tarea y no tienen que tener complejidad");
+	}
 	
+	public void bajaSubT(String idSubT){
+		Iterator<Tarea>it=LSubtareas.iterator();
+		Tarea t=null;
+		boolean bandera=true;
+		while(it.hasNext() && bandera){
+			t=it.next();
+			if(t.getId().equals(idSubT)){
+				it.remove();
+				bandera=false;
+			}
+		}
+	}
+	
+	public void agregarDep(Tarea tar){
+		Ldependencias.add(tar);
+	}
+	
+	public void bajaDependencia(String idDep){
+		Iterator<Tarea>it=Ldependencias.iterator();
+		Tarea t=null;
+		boolean bandera=true;
+		while(it.hasNext() && bandera){
+			t=it.next();
+			if(t.getId().equals(idDep)){
+				it.remove();
+				bandera=false;
+			}
+		}
+	}
+	
+	public int estimacion(){
+		return complejidad;
+	}
 
 	/**
 	 * Permite la comparación entre una Tarea y 
@@ -178,6 +223,44 @@ public class Tarea implements Comparable<Tarea> {
 	@Override
 	public int compareTo(Tarea arg0) {
 		return this.id.compareTo(arg0.getId());
+	}
+	
+	public void muestraDependencias(){
+		Iterator<Tarea>it=Ldependencias.iterator();
+		Tarea t=null;
+		if(!Ldependencias.isEmpty()){
+			System.out.println("Dependencias:");
+			while(it.hasNext()){
+				t=it.next();
+				System.out.println(t.getId());
+			}
+		}
+	}
+	
+	public void muestraSubTareas(){
+		Iterator<Tarea>it=LSubtareas.iterator();
+		Tarea t=null;
+		if(!LSubtareas.isEmpty()){
+			System.out.println("Subtareas:");
+			while(it.hasNext()){
+				t=it.next();
+				System.out.println(t.getId());
+			}
+		}
+	}
+	
+	public void agregaFlujoPaso(String descripcion,int pasos){
+		
+	}
+	
+	/*public void agregarSubTarea(Tarea tar){
+		if(tar.getId().substring(0, 3).equals("TAR") && tar.getComplejidad()!=0)
+			LSubtareas.add(tar);
+		else
+			System.out.println("Las subtareas solo pueden ser de tipo tarea");
+	}*/
+	public void muestra(){
+		System.out.println(id);
 	}
 
 

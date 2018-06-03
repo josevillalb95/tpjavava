@@ -69,19 +69,19 @@ public final class Proyecto {
 		Iterator<Sprint> it = LSprints.iterator();
 		Sprint sp = it.next();
 		while(!bandera && it.hasNext() && (sp.getClave().compareTo(clave)<=0)){
+			sp = it.next();
 			if(sp.getClave().equals(clave)){
 				if(sp.getEstado()==EstadoSprint.PLANIFICADO){
 /*					for(Tarea p: c.getListaT()){                               TRABAJAR CON LAS TAREAS
 						blog.getListaTB().add(p);
 					}*/
-					
+					LSprints.remove(sp);
+					bandera = true;
 				}
-				LSprints.remove(sp);
-				bandera = true;
-				System.out.println("Hola");
 			}
 			else
-				sp = it.next();
+				System.out.println("No se puede eliminar un sprint en curso o finalizado");
+				
 		}
 	}
 	
@@ -100,6 +100,7 @@ public final class Proyecto {
 	public void corrersp(){
 		for(Sprint lt : LSprints) {
 			System.out.println(lt.getClave());
+			lt.muestraTareasSprint();
 		}
 	}
 	
@@ -136,6 +137,18 @@ public final class Proyecto {
 	public void mostrarTareas(){
 		blog.muestraTareas();
 	}
+	
+	public void agregarDependencias(String idT,String idDep){
+		blog.agregaDependencia(idT, idDep);
+	}
+	public void eliminarDependencia(String idT,String idDep){
+		blog.bajaDependencia(idT, idDep);
+	}
+	
+	public void agregarFlujoPaso(String idT, String descripcion, int pasos){
+		blog.agregaFP(idT, descripcion, pasos);
+	}
+	
 	public TreeSet<Tarea> getTareasSprintEnCurso() {
 		Sprint sp = null;
 		boolean bandera = true;
@@ -149,6 +162,47 @@ public final class Proyecto {
 		else
 			return sp.getListaT();
 	}
+	public int calcularEstimacionSprint(String idSprint){
+		Sprint sp=null;
+		boolean bandera=true;
+		Iterator<Sprint> it = LSprints.iterator();
+		int estimacion=0;
+		while(it.hasNext() && bandera){
+			sp=it.next();
+			if(sp.getClave().equals(idSprint)){
+				estimacion=sp.estimacionSprint();
+				bandera=false;
+			}
+		}
+		return estimacion;
+	}
 	
+	public void bajaTareaSprint(String idSprint,String idTarea){
+		Iterator<Sprint>it=LSprints.iterator();
+		Sprint sp=null;
+		boolean bandera=true;
+		while(it.hasNext() && bandera){
+			sp=it.next();
+			if(sp.getClave().compareTo(idSprint)==0){
+				sp.bajaTarea(idTarea);
+				bandera=false;
+			}
+				
+		}
+	}
 	
+	public void bajaTareaBackLog(String idTarea){
+		blog.bajaTarea(idTarea);
+	}
+	/**
+	 * 
+	 * @param idT tarea a la que hay que agregarle la subTarea
+	 * @param idSubT subTarea que hay que agregar
+	 */
+	public void agregaSubT(String idT,String idSubT){
+		blog.agregaSubTarea(idT, idSubT);
+	}
+	public void eliminarSubT(String idT,String idSubT){
+		blog.bajaSubTarea(idT, idSubT);
+	}
 }
