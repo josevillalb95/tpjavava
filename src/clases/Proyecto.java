@@ -67,10 +67,10 @@ public final class Proyecto {
 	}
 	
 	public void bajaSprint(String clave) throws SprintNoValido{
-		boolean bandera = false;
+		boolean bandera = true;
 		Iterator<Sprint> it = LSprints.iterator();
 		Sprint sp = null;
-		while(!bandera && it.hasNext()){
+		while(bandera && it.hasNext()){
 			sp = it.next();
 			if(sp.getClave().compareTo(clave)<=0){
 				if(sp.getClave().equals(clave)){
@@ -79,7 +79,7 @@ public final class Proyecto {
 							blog.getListaTB().add(p);
 						}*/
 						LSprints.remove(sp);
-						bandera = true;
+						bandera = false;
 					}
 					else
 						throw new SprintNoValido();

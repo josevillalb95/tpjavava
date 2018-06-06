@@ -3,6 +3,8 @@ package UI;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -74,16 +76,20 @@ public class ABMTareas extends JPanel {
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				accion = 2;
-				Tarea tar = Proyecto.getInstance().getBlog().getTarea(table.getValueAt(table.getSelectedRow(), 0).toString());
-				txtId.setText(tar.getId());
-				txtNombre.setText(tar.getNombre());
-				txtDescripcion.setText(tar.getDescripcion());
-				cbComplejidad.setSelectedIndex(tar.getComplejidad()-1);
-				
-				txtId.setEnabled(false);
-				btnModificar.setEnabled(false);
-				Proyecto.getInstance().getBlog().bajaTarea(tar.getId());
+				try{
+					accion = 2;
+					Tarea tar = Proyecto.getInstance().getBlog().getTarea(table.getValueAt(table.getSelectedRow(), 0).toString());
+					txtId.setText(tar.getId());
+					txtNombre.setText(tar.getNombre());
+					txtDescripcion.setText(tar.getDescripcion());
+					cbComplejidad.setSelectedIndex(tar.getComplejidad()-1);
+					
+					txtId.setEnabled(false);
+					btnModificar.setEnabled(false);
+					Proyecto.getInstance().getBlog().bajaTarea(tar.getId());
+				}catch(ArrayIndexOutOfBoundsException ex){
+					JOptionPane.showMessageDialog(null, "Debe seleccionarse una tarea a modificar.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
 				
 			}
 		});
@@ -93,6 +99,12 @@ public class ABMTareas extends JPanel {
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try{
+					Proyecto.getInstance().bajaTareaBackLog(table.getValueAt(table.getSelectedRow(), 0).toString());
+					table.setModel(new TareasTM(Proyecto.getInstance().getBlog().getLTareasP()));
+				}catch(ArrayIndexOutOfBoundsException ex){
+					JOptionPane.showMessageDialog(null, "Debe seleccionarse una tarea a eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 		btnEliminar.setBounds(360, 157, 89, 23);

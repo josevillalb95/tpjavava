@@ -33,7 +33,7 @@ public class TareasTM extends AbstractTableModel{
 	}
 
 	@Override
-	public Object getValueAt(int row, int column) {
+	public Object getValueAt(int row, int column) throws ArrayIndexOutOfBoundsException {
 		Tarea tar = aTareas.get(row);
 		Object ob = null;
 		switch (column) {
