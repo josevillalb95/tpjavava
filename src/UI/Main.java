@@ -10,6 +10,7 @@ import java.time.Month;
 import backLogs.Backlog;
 import clases.Proyecto;
 import clases.Sprint;
+import clases.SprintNoValido;
 
 /**
  * @author Alumno
@@ -19,8 +20,9 @@ public class Main {
 
 	/**
 	 * @param args
+	 * @throws SprintNoValido 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SprintNoValido {
 		// TODO Auto-generated method stub
 		Proyecto proy=new Proyecto();
 		//bl.cargaListaTareas();
@@ -108,7 +110,8 @@ public class Main {
 		//proy.avance("SPR002");
 		//proy.avance("SPR002");
 		System.out.println(proy.cantAvance("SPR002"));
-		proy.cambiarEstadoSprint("SPR001", "en curso");
+		//proy.cambiarEstadoSprint("SPR001", "en curso");
+		//proy.bajaSprint("SPR002");
 		proy.corrersp();
 
 		EventQueue.invokeLater(new Runnable() {

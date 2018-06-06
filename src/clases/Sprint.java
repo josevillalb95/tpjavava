@@ -1,6 +1,6 @@
 package clases;
 
-import java.util.Date;
+
 import java.util.Iterator;
 import java.util.TreeSet;
 
@@ -121,6 +121,7 @@ public class Sprint implements Comparable<Sprint>{
 		fFin = ff;
 		fAvance=fInicio;
 		avance=1;
+		duracion=(int) (1+(fInicio.until(fFin, ChronoUnit.DAYS)));
 		//Cantidad de dias de duracion y avance no se saca automaticamente?
 		}
 	
@@ -199,9 +200,7 @@ public class Sprint implements Comparable<Sprint>{
 		avance+=1;
 	}
 	public int duracion(){
-		int cant=(int)fInicio.until(fFin, ChronoUnit.DAYS);
-		duracion=cant;
-		return cant;
+		return duracion;
 	}
 	
 	public void cambiarEstado(String est){

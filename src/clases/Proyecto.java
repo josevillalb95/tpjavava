@@ -3,7 +3,7 @@
  */
 package clases;
 
-import java.util.Date;
+//import java.util.Date;
 import java.util.Iterator;
 import java.util.TreeSet;
 
@@ -284,6 +284,6 @@ public final class Proyecto {
 	
 	public int calcularDuracion(String idSprint){
 		Sprint s=devuelveSprint(idSprint);
-		return s.duracion()+1;
+		return s.duracion();
 	}
 }
