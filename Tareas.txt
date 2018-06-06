@@ -1,5 +1,5 @@
 HIS001-Login-Login de la aplicación con usuario y contraseña.-INPROGRESS-3- -TAR004,TAR005- -Usuario inválido,6,Contraseña inválida,8,Usuario y contraseña inexistente,10,Usuario y contraseña correctos,12,/
-HIS002-Listado de estrenos-Listado de películas estrenadas en las últimas dos semanas.-DONE-8-TAR003-TAR006-23/5/2018-Solicitar listado,15,Actualizar listado,15,Navegar listado,12,/
+HIS002-Listado de estrenos-Listado de películas estrenadas en las últimas dos semanas.-INPROGRESS-8-TAR003-TAR006-23/5/2018-Solicitar listado,15,Actualizar listado,15,Navegar listado,12,/
 HIS003-Listado de vistos-Listado de películas ya vistas.-DONE-6- -TAR007-01/6/2018-Solicitar listado,12,Listado vacío,6,Navegar listado,12,/
 HIS004-Mi lista-Listado de películas guardadas en la lista personal del usuario.-DONE-7- -TAR008,TAR009-14/5/2018-Solicitar listado,15,Listado vacío,6,Navegar listado,12,/
 HIS005-Agregar a mi lista-Agregar película a la lista personal del usuario.-DONE-3-HIS004- -28/5/2018-Agregar película a mi lista,11,Agregar película ya agregada,8,/

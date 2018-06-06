@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 import java.util.TreeSet;
 
+import clases.Estados;
 import estadosTareas.Estado;
 import estadosTareas.ToDo;
 import historial.Historial;
@@ -15,7 +16,8 @@ public class Tarea implements Comparable<Tarea> {
 
 	private String id, nombre, descripcion;
 	private LocalDate fFin;
-	private EstadoTarea estado;
+	//private EstadoTarea estado;
+	private String estado;
 	private ArrayList<Historial> Lhist; //Podria ser un Treeset para ordenarlos por fecha?
 	private int complejidad;
 	private TreeSet<Tarea> LSTareas;
@@ -24,7 +26,7 @@ public class Tarea implements Comparable<Tarea> {
 	private TreeSet<Tarea> LSubtareas;
 	//private Historial historialEstados;
 	
-	public Tarea(String id, String nombre, String descripcion,EstadoTarea e, LocalDate finalizacion,
+	public Tarea(String id, String nombre, String descripcion,String e, LocalDate finalizacion,
 			int complejidad) {
 		super();
 		this.id = id;
@@ -85,7 +87,7 @@ public class Tarea implements Comparable<Tarea> {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fFin = finalizacion;
-		this.estado = estado;
+		//this.estado = estado;
 		this.complejidad = complejidad;
 		Lhist = new ArrayList<>();
 	}
@@ -120,7 +122,7 @@ public class Tarea implements Comparable<Tarea> {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fFin = finalizacion;
-		this.estado = estado;
+		//this.estado = estado;
 		this.complejidad = complejidad;
 	}
 	/**
@@ -265,15 +267,16 @@ public class Tarea implements Comparable<Tarea> {
 		System.out.println(id);
 	}
 	
-	public void agregarEstadoHistorial(String est, LocalDate fecha){
-		EstadoTarea e=null;
-		//e=e.devuelveEstado(estado);
-		Lhist.add(new Historial(fecha,e.devuelveEstado(est)));
+	public void agregarEstadoHistorial(Estado est, LocalDate fecha){
+		//EstadoTarea e = null;
+		//e=e.devuelveEstado(est);
+		Lhist.add(new Historial(fecha,est));
 	}
 	
 	public void setEstado(String est ){
-		EstadoTarea e=null;
-		estado=e.devuelveEstado(est);
+		//EstadoTarea e=null;
+		//estado=e.devuelveEstado(est);
+		estado=est;
 	}
 	
 	

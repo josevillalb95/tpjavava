@@ -3,8 +3,10 @@
  */
 package clases;
 
+import java.util.ArrayList;
 //import java.util.Date;
 import java.util.Iterator;
+import java.util.Scanner;
 import java.util.TreeSet;
 
 import javax.swing.plaf.OptionPaneUI;
@@ -13,6 +15,9 @@ import Tareas.Tarea;
 import UI.InterfazGrafica;
 import backLogs.Backlog;
 import estadosTareas.Estado;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -24,6 +29,7 @@ public final class Proyecto {
 	private LocalDate today = LocalDate.now();
 	private Backlog blog = new Backlog();
 	private TreeSet<Sprint> LSprints = new TreeSet<Sprint>();
+	private ArrayList<Estados>listaEstados=new ArrayList<Estados>();
 	
 	private static Proyecto instance = null;
 	
@@ -288,7 +294,9 @@ public final class Proyecto {
 	}
 	public void cambiarEstadoTarea(String idSprint,String idT,String est,LocalDate fecha){
 		Sprint s=devuelveSprint(idSprint);
-		s.cambiarEstadoTarea(idT, est,fecha);
+		Estados e=null;
+		e=devuelveEstado(est);
+		s.cambiarEstadoTarea(idT, e,fecha);
 	}
 	public LocalDate getFechaAvanceSprint(String idSprint){
 		LocalDate fecha;
@@ -300,6 +308,39 @@ public final class Proyecto {
 		Sprint s=devuelveSprint(idSprint);
 		s.muestraHistorial();
 	}
-	
+	public void cargaEstados(){
+
+		Estados e=null;
+		File f=new File("Estados.txt");
+		String nombre,estadoAnt,estadoSig;
+		try{
+			Scanner s=new Scanner(f);
+			while(s.hasNextLine()){
+				String datos=s.nextLine();
+				Scanner sl=new Scanner(datos);
+				sl.useDelimiter("\\s*-\\s*");
+				nombre=sl.next();
+				estadoAnt=sl.next();
+				estadoSig=sl.next();
+				e=new Estados(nombre,estadoAnt,estadoSig);
+				listaEstados.add(e);
+				sl.close();
+			}
+			s.close();
+		}catch(FileNotFoundException ex){
+			ex.printStackTrace();
+		}
+}
+public Estados devuelveEstado(String id){
+	Iterator<Estados>it=listaEstados.iterator();
+	Estados e=null;
+	int bandera=0;
+	while(it.hasNext() && bandera==0){
+		e=it.next();
+		if(e.getNombre().equals(id))
+			bandera=1;
+	}
+	return e;
+}
 	
 }

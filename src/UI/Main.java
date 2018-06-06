@@ -96,7 +96,7 @@ public class Main {
 		//System.out.println("Avance:"+);
 		
 		proy.avance("SPR002");
-		proy.cambiarEstadoTarea("SPR002", "HIS001", "PENDINGTOBUILD", proy.getFechaAvanceSprint("SPR002"));
+		proy.cambiarEstadoTarea("SPR002", "HIS002", "PENDINGTOBUILD", proy.getFechaAvanceSprint("SPR002"));
 		proy.avance("SPR002");
 		proy.avance("SPR002");
 		proy.avance("SPR002");

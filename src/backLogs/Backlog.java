@@ -16,6 +16,7 @@ import Tareas.EstadoTarea;
 import Tareas.Historia;
 import Tareas.Mejora;
 import Tareas.Tarea;
+import clases.Estados;
 
 public class Backlog {
 	private TreeSet<Tarea> LTareasP = new TreeSet<Tarea>();
@@ -55,7 +56,7 @@ public class Backlog {
 	 * @param comp
 	 * DEPENDE DE SU TIPO BUG , HISTORIA , ETC 
 	 */
-	public void altaTarea(String tipo, String id, String nombre, String desc,EstadoTarea est, LocalDate finalizacion, int comp){
+	public void altaTarea(String tipo, String id, String nombre, String desc,String est, LocalDate finalizacion, int comp){
 		Tarea tar;
 		switch (tipo){
 			case "Bug":
@@ -176,22 +177,23 @@ public class Backlog {
 				e=sl.next();
 				switch(e){
 				case"ToDo":
-					est=EstadoTarea.TODO;
+					//est=EstadoTarea.TODO;
 					break;
 				case"InProgress":
-					est=EstadoTarea.INPROGRESS;
+					//est=EstadoTarea.INPROGRESS;
 					break;
 				case"PendingToBuild":
-					est=EstadoTarea.PENDINGTOBUILD;
+					//est=EstadoTarea.PENDINGTOBUILD;
 					break;
 				case"ReadyToTest":
-					est=EstadoTarea.READYTOTEST;
+					//est=EstadoTarea.READYTOTEST;
 					break;
 				case"Testing":
-					est=EstadoTarea.TESTING;
+					//est=EstadoTarea.TESTING;
 					break;
 				case"Done":
-					est=EstadoTarea.DONE;
+					//est=EstadoTarea.DONE;
+					//est=Estados.DONE;
 				}
 				comp=Integer.valueOf(sl.next());
 				dep=sl.next();
@@ -204,20 +206,24 @@ public class Backlog {
 				fp=sl.next();
 				switch(id.substring(0,3)){
 				case"TAR":{
-					t=new Tarea(id,nombre,descripcion,est,fechaFinalizacion,comp);
+					//t=new Tarea(id,nombre,descripcion,est,fechaFinalizacion,comp);
+					t=new Tarea(id,nombre,descripcion,e,fechaFinalizacion,comp);
 					break;
 				}
 				case"HIS":{
-					t=new Historia(id,nombre,descripcion,est,fechaFinalizacion,comp);
+					//t=new Historia(id,nombre,descripcion,est,fechaFinalizacion,comp);
+					t=new Historia(id,nombre,descripcion,e,fechaFinalizacion,comp);
 					//t.agregarFlujoPaso(fp);
 					break;
 				}
 				case"MEJ":{
-					t=new Mejora(id,nombre,descripcion,est,fechaFinalizacion,comp);
+					//t=new Mejora(id,nombre,descripcion,est,fechaFinalizacion,comp);
+					t=new Mejora(id,nombre,descripcion,e,fechaFinalizacion,comp);
 					break;
 				}
 				case "BUG":{
-					t=new Bug(id,nombre,descripcion,est,fechaFinalizacion,comp);
+					//t=new Bug(id,nombre,descripcion,est,fechaFinalizacion,comp);
+					t=new Bug(id,nombre,descripcion,e,fechaFinalizacion,comp);
 					break;
 				}
 				}

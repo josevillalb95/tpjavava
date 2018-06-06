@@ -6,6 +6,7 @@ package Tareas;
 import java.time.LocalDate;
 import java.util.Date;
 
+import clases.Estados;
 import estadosTareas.Estado;
 
 /**
@@ -14,7 +15,7 @@ import estadosTareas.Estado;
  */
 public class Mejora extends Tarea{
 	
-	public Mejora(String id, String nombre, String descripcion,EstadoTarea est, LocalDate finalizacion, int complejidad) {
+	public Mejora(String id, String nombre, String descripcion,String est, LocalDate finalizacion, int complejidad) {
 		super(id, nombre, descripcion,est, finalizacion, complejidad);
 		// TODO Auto-generated constructor stub
 	}
