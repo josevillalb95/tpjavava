@@ -244,11 +244,11 @@ public final class Proyecto {
 	public Sprint devuelveSprint(String idSprint){
 		Iterator<Sprint>it=LSprints.iterator();
 		Sprint sp=null;
-		boolean bandera=true;
-		while(it.hasNext() && bandera){
+		boolean bandera=false;
+		while(it.hasNext() && !bandera){
 			sp=it.next();
 			if(sp.getClave().compareTo(idSprint)==0){
-				bandera=false;
+				bandera=true;
 			}
 		}
 		return sp;
@@ -286,4 +286,20 @@ public final class Proyecto {
 		Sprint s=devuelveSprint(idSprint);
 		return s.duracion();
 	}
+	public void cambiarEstadoTarea(String idSprint,String idT,String est,LocalDate fecha){
+		Sprint s=devuelveSprint(idSprint);
+		s.cambiarEstadoTarea(idT, est,fecha);
+	}
+	public LocalDate getFechaAvanceSprint(String idSprint){
+		LocalDate fecha;
+		Sprint s=devuelveSprint(idSprint);
+		fecha=s.getfAvance();
+		return fecha;
+	}
+	public void historial(String idSprint){
+		Sprint s=devuelveSprint(idSprint);
+		s.muestraHistorial();
+	}
+	
+	
 }

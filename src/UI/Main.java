@@ -96,6 +96,7 @@ public class Main {
 		//System.out.println("Avance:"+);
 		
 		proy.avance("SPR002");
+		proy.cambiarEstadoTarea("SPR002", "HIS001", "PENDINGTOBUILD", proy.getFechaAvanceSprint("SPR002"));
 		proy.avance("SPR002");
 		proy.avance("SPR002");
 		proy.avance("SPR002");
@@ -112,7 +113,9 @@ public class Main {
 		System.out.println(proy.cantAvance("SPR002"));
 		//proy.cambiarEstadoSprint("SPR001", "en curso");
 		//proy.bajaSprint("SPR002");
-		proy.corrersp();
+		//proy.corrersp();
+		proy.historial("SPR002");
+		//proy.mostrarTareas();
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

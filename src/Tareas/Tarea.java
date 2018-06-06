@@ -16,13 +16,13 @@ public class Tarea implements Comparable<Tarea> {
 	private String id, nombre, descripcion;
 	private LocalDate fFin;
 	private EstadoTarea estado;
-	private ArrayList<Estado> Lhist; //Podria ser un Treeset para ordenarlos por fecha?
+	private ArrayList<Historial> Lhist; //Podria ser un Treeset para ordenarlos por fecha?
 	private int complejidad;
 	private TreeSet<Tarea> LSTareas;
 	private int estimacion; //Conviene sacar valor en Constructor o en otra funcion?
 	private TreeSet<Tarea> Ldependencias;
 	private TreeSet<Tarea> LSubtareas;
-	private Historial historialEstados;
+	//private Historial historialEstados;
 	
 	public Tarea(String id, String nombre, String descripcion,EstadoTarea e, LocalDate finalizacion,
 			int complejidad) {
@@ -35,7 +35,7 @@ public class Tarea implements Comparable<Tarea> {
 		this.estado = e;
 		//this.LSTareas = null;
 		this.complejidad = complejidad;
-		//Lhist =null;
+		Lhist =new ArrayList<Historial>();
 		Ldependencias=new TreeSet<Tarea>();
 		LSubtareas=new TreeSet<Tarea>();
 	}
@@ -107,7 +107,7 @@ public class Tarea implements Comparable<Tarea> {
 		return estado.toString();
 	}
  
-	public ArrayList<Estado> getLhist() {
+	public ArrayList<Historial> getLhist() {
 		return Lhist;
 	}
 
@@ -171,7 +171,7 @@ public class Tarea implements Comparable<Tarea> {
 	 */
 	
 	public void muestraHistorico(){
-		Iterator<Estado> it = Lhist.iterator();
+		Iterator<Historial> it = Lhist.iterator();
 		while (it.hasNext()){
 			System.out.println(it.next().toString() + "\n");
 		}		
@@ -264,7 +264,20 @@ public class Tarea implements Comparable<Tarea> {
 	public void muestra(){
 		System.out.println(id);
 	}
-
+	
+	public void agregarEstadoHistorial(String est, LocalDate fecha){
+		EstadoTarea e=null;
+		//e=e.devuelveEstado(estado);
+		Lhist.add(new Historial(fecha,e.devuelveEstado(est)));
+	}
+	
+	public void setEstado(String est ){
+		EstadoTarea e=null;
+		estado=e.devuelveEstado(est);
+	}
+	
+	
+	
 
 	/*
 	 * @Override public int compare(Object o1, Object o2) { // TODO

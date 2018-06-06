@@ -219,7 +219,32 @@ public class Sprint implements Comparable<Sprint>{
 		estado=e;
 	}
 
-
+	public void cambiarEstadoTarea(String idT,String est,LocalDate fecha){
+		Tarea t=getTarea(idT);
+		t.agregarEstadoHistorial(est, fecha);
+		t.setEstado(est);
+	}
+	public Tarea getTarea(String id){
+		Iterator<Tarea>lista=LTareas.iterator();
+		Tarea t=null;
+		boolean bandera=false;
+		while(lista.hasNext() && !bandera){
+			t=lista.next();
+			if(t.getId().equals(id))
+				bandera=true;
+		}
+		return t;
+	}
+	public void muestraHistorial(){
+		Iterator<Tarea>lista=LTareas.iterator();
+		Tarea t=null;
+		System.out.println("ID:"+clave);
+		while(lista.hasNext()){
+			t=lista.next();
+			System.out.println(t.getId());
+			t.muestraHistorico();
+		}
 		
+	}
 	
 }
