@@ -22,7 +22,7 @@ public class Backlog {
 
 	
 	/**
-	 * @param args
+	 * SE AGREGA UN BACKLOGS  ( ES UNA TREESET DE TAREA ) 
 	 */
 	public void agrega() {
 		/*Tarea t= new Tarea("45Julia", null, null, null, 0);
@@ -53,6 +53,7 @@ public class Backlog {
 	 * @param desc
 	 * @param finalizacion
 	 * @param comp
+	 * DEPENDE DE SU TIPO BUG , HISTORIA , ETC 
 	 */
 	public void altaTarea(String tipo, String id, String nombre, String desc,EstadoTarea est, LocalDate finalizacion, int comp){
 		Tarea tar;
@@ -137,13 +138,7 @@ public class Backlog {
 	 * @param clave
 	 * elimina un nodo del treeset que concida con la clave enviada 
 	 */
-	/*public void bajaTarea(String clave , Tarea tare) {
-		for(Tarea c:LTareasP ){
-			if(c.getId().equals(clave)){
-				LTareasP.remove(c);
-			}
-		}
-	}*/
+	
 	public void bajaTarea(String clave) {
 		Iterator<Tarea>it=LTareasP.iterator();
 		Tarea t=null;
@@ -156,6 +151,9 @@ public class Backlog {
 			}
 		}
 	}
+	/**
+	 * CARGA LISTA DE TAREAS DESDE UN .TXT 
+	 */
 	public void cargaListaTareas(){
 		Tarea t=null;
 		File f=new File("Tareas.txt");
