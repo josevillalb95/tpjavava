@@ -3,6 +3,7 @@
  */
 package Tareas;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -12,7 +13,7 @@ import estadosTareas.Estado;
  * @author tomi_
  *
  */
-public class Mejora extends Tarea{
+public class Mejora extends Tarea implements Serializable{
 	
 	public Mejora(String id, String nombre, String descripcion,EstadoTarea est, LocalDate finalizacion, int complejidad) {
 		super(id, nombre, descripcion,est, finalizacion, complejidad);

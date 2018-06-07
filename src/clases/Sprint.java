@@ -6,10 +6,11 @@ import java.util.TreeSet;
 
 import Tareas.Tarea;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class Sprint implements Comparable<Sprint>{
+public class Sprint implements Comparable<Sprint>, Serializable{
 	
 	private	String clave, descripcion;
 	private EstadoSprint estado;

@@ -13,6 +13,13 @@ import Tareas.Tarea;
 import UI.InterfazGrafica;
 import backLogs.Backlog;
 import estadosTareas.Estado;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -300,6 +307,39 @@ public final class Proyecto {
 	public void historial(String idSprint){
 		Sprint s=devuelveSprint(idSprint);
 		s.muestraHistorial();
+	}
+	
+	/**
+	 * Serializa
+	 * @param obj Object a serializar
+	 * @param output Path y nombre del archivo a serializar
+	 * @throws IOException si ocurre un error al abrir el archivo
+	 */
+	public void Escribir(Object obj, String output) throws IOException{
+		File fich;
+		fich = new File(output);
+		FileOutputStream fos = new FileOutputStream(fich);
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(obj);
+		oos.close();
+	}
+	
+	/**
+	 * Desserializa
+	 * @param output Path y nombre del archivo a desserializar
+	 * @return Object con lo obtenido del archivo
+	 * @throws IOException si ocurre un error al abrir el archivo
+	 * @throws ClassNotFoundException si no encuentra el archivo buscado
+	 */
+	public Object Leer(String output) throws IOException, ClassNotFoundException{
+		File fich;
+		fich = new File(output);
+		FileInputStream fis = new FileInputStream(fich);
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		Object obj = ois.readObject();
+		ois.close();
+		
+		return obj;
 	}
 	
 	

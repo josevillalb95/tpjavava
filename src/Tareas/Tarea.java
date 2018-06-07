@@ -1,5 +1,6 @@
 package Tareas;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,7 +12,7 @@ import estadosTareas.Estado;
 import estadosTareas.ToDo;
 import historial.Historial;
 
-public class Tarea implements Comparable<Tarea> {
+public class Tarea implements Comparable<Tarea>, Serializable {
 
 	private String id, nombre, descripcion;
 	private LocalDate fFin;

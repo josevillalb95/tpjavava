@@ -4,6 +4,7 @@
 package UI;
 
 import java.awt.EventQueue;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -27,6 +28,7 @@ public class Main {
 		Proyecto proy=new Proyecto();
 		//bl.cargaListaTareas();
 		proy.cargarTareas();
+		
 		
 		proy.altaSprint("SPR001", "Sprint 1");
 		proy.agregarTareasSprint("SPR001","HIS001");
@@ -70,7 +72,6 @@ public class Main {
 		proy.agregaSubT("HIS001", "TAR004");
 		proy.agregaSubT("HIS001", "TAR005");
 		//proy.agregaSubT("HIS001", "TAR001");
-	
 		
 		
 		//TAR001, HIS002, TAR006, HIS005, TAR002, TAR010, MEJ002, TAR012

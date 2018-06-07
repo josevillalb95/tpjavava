@@ -3,6 +3,7 @@
  */
 package Tareas;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,7 +18,7 @@ import estadosTareas.Estado;
  * @author tomi_
  *
  */
-public class Historia extends Tarea{
+public class Historia extends Tarea implements Serializable{
 	private ArrayList<DuplaFlujoPaso> ListaDuplafp ;
 	private Map<String, Integer> flujoPasos = new HashMap<String, Integer>();
 	

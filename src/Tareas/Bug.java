@@ -3,6 +3,7 @@
  */
 package Tareas;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -14,7 +15,7 @@ import estadosTareas.Estado;
  * @author tomi_
  *
  */
-public class Bug extends Tarea{
+public class Bug extends Tarea implements Serializable{
 	
 	public Bug(String id, String nombre, String descripcion,EstadoTarea est, LocalDate finalizacion, int complejidad) {
 		super(id, nombre, descripcion, est,finalizacion, complejidad);
