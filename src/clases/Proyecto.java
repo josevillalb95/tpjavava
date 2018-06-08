@@ -286,9 +286,10 @@ public final class Proyecto {
 		Sprint s=devuelveSprint(idSprint);
 		return s.duracion();
 	}
-	public void cambiarEstadoTarea(String idSprint,String idT,String est,LocalDate fecha){
+	
+	public void cambiarEstadoTarea(String idSprint,String idT,String est){
 		Sprint s=devuelveSprint(idSprint);
-		s.cambiarEstadoTarea(idT, est,fecha);
+		s.cambiarEstadoTarea(idT, est);
 	}
 	public LocalDate getFechaAvanceSprint(String idSprint){
 		LocalDate fecha;

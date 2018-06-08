@@ -219,9 +219,9 @@ public class Sprint implements Comparable<Sprint>{
 		estado=e;
 	}
 
-	public void cambiarEstadoTarea(String idT,String est,LocalDate fecha){
+	public void cambiarEstadoTarea(String idT,String est){
 		Tarea t=getTarea(idT);
-		t.agregarEstadoHistorial(est, fecha);
+		t.agregarEstadoHistorial(est, fAvance);
 		t.setEstado(est);
 	}
 	public Tarea getTarea(String id){

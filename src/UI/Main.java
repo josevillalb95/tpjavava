@@ -96,14 +96,16 @@ public class Main {
 		//System.out.println("Avance:"+);
 		
 		proy.avance("SPR002");
-		proy.cambiarEstadoTarea("SPR002", "HIS002", "PENDINGTOBUILD", proy.getFechaAvanceSprint("SPR002"));
+		//proy.cambiarEstadoTarea("SPR002", "HIS002", "PENDINGTOBUILD", proy.getFechaAvanceSprint("SPR002"));
+		proy.cambiarEstadoTarea("SPR002", "HIS002", "PENDINGTOBUILD");
 		proy.avance("SPR002");
 		proy.avance("SPR002");
-		proy.cambiarEstadoTarea("SPR002", "HIS002", "READYTOTEST", proy.getFechaAvanceSprint("SPR002"));
-		proy.cambiarEstadoTarea("SPR002", "HIS005", "PENDINGTOBUILD", proy.getFechaAvanceSprint("SPR002"));
+		//proy.cambiarEstadoTarea("SPR002", "HIS002", "READYTOTEST", proy.getFechaAvanceSprint("SPR002"));
+		//proy.cambiarEstadoTarea("SPR002", "HIS005", "PENDINGTOBUILD", proy.getFechaAvanceSprint("SPR002"));
 		proy.avance("SPR002");
 		proy.avance("SPR002");
-		proy.cambiarEstadoTarea("SPR002", "HIS002", "TESTING", proy.getFechaAvanceSprint("SPR002"));
+		//proy.cambiarEstadoTarea("SPR002", "HIS002", "TESTING", proy.getFechaAvanceSprint("SPR002"));
+		proy.cambiarEstadoTarea("SPR002", "HIS002", "TESTING");
 		proy.avance("SPR002");
 		proy.avance("SPR002");
 		proy.avance("SPR002");
