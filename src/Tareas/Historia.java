@@ -11,7 +11,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeSet;
 
-import clases.Estados;
 import estadosTareas.Estado;
 
 /**
@@ -22,7 +21,7 @@ public class Historia extends Tarea{
 	private ArrayList<DuplaFlujoPaso> ListaDuplafp ;
 	private Map<String, Integer> flujoPasos = new HashMap<String, Integer>();
 	
-	public Historia(String id, String nombre, String descripcion,String est, LocalDate finalizacion, int complejidad) {
+	public Historia(String id, String nombre, String descripcion,EstadoTarea est, LocalDate finalizacion, int complejidad) {
 		super(id, nombre, descripcion, est,finalizacion, complejidad);
 		ListaDuplafp = new ArrayList<DuplaFlujoPaso>();
 		

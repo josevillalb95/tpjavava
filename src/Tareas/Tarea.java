@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-import clases.Estados;
 import estadosTareas.Estado;
 import estadosTareas.ToDo;
 import historial.Historial;
@@ -16,8 +15,7 @@ public class Tarea implements Comparable<Tarea> {
 
 	private String id, nombre, descripcion;
 	private LocalDate fFin;
-	//private EstadoTarea estado;
-	private String estado;
+	private EstadoTarea estado;
 	private ArrayList<Historial> Lhist; //Podria ser un Treeset para ordenarlos por fecha?
 	private int complejidad;
 	private TreeSet<Tarea> LSTareas;
@@ -26,15 +24,15 @@ public class Tarea implements Comparable<Tarea> {
 	private TreeSet<Tarea> LSubtareas;
 	//private Historial historialEstados;
 	
-	public Tarea(String id, String nombre, String descripcion,String e, LocalDate finalizacion,
+	public Tarea(String id, String nombre, String descripcion,EstadoTarea e, LocalDate finalizacion,
 			int complejidad) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fFin = finalizacion;
-		//this.estado = EstadoTarea.TODO;
-		this.estado = e;
+		estado = EstadoTarea.INPROGRESS;
+		//this.estado = e;
 		//this.LSTareas = null;
 		this.complejidad = complejidad;
 		Lhist =new ArrayList<Historial>();
@@ -87,7 +85,7 @@ public class Tarea implements Comparable<Tarea> {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fFin = finalizacion;
-		//this.estado = estado;
+		this.estado = estado;
 		this.complejidad = complejidad;
 		Lhist = new ArrayList<>();
 	}
@@ -122,7 +120,7 @@ public class Tarea implements Comparable<Tarea> {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.fFin = finalizacion;
-		//this.estado = estado;
+		this.estado = estado;
 		this.complejidad = complejidad;
 	}
 	/**
@@ -174,8 +172,10 @@ public class Tarea implements Comparable<Tarea> {
 	
 	public void muestraHistorico(){
 		Iterator<Historial> it = Lhist.iterator();
+		Historial h;
 		while (it.hasNext()){
-			System.out.println(it.next().toString() + "\n");
+			h=it.next();
+			System.out.println(h.getFecha()+" "+h.getEstado());
 		}		
 	}
 	public void agregarSubT(Tarea tar){
@@ -267,16 +267,16 @@ public class Tarea implements Comparable<Tarea> {
 		System.out.println(id);
 	}
 	
-	public void agregarEstadoHistorial(Estado est, LocalDate fecha){
-		//EstadoTarea e = null;
-		//e=e.devuelveEstado(est);
-		Lhist.add(new Historial(fecha,est));
+	public void agregarEstadoHistorial(String est, LocalDate fecha){
+		EstadoTarea e=null;
+		e=EstadoTarea.valueOf(est);//e.devuelveEstado(est);
+		Lhist.add(new Historial(fecha,e));
 	}
 	
 	public void setEstado(String est ){
-		//EstadoTarea e=null;
+		EstadoTarea e=null;
 		//estado=e.devuelveEstado(est);
-		estado=est;
+		estado=EstadoTarea.valueOf(est);
 	}
 	
 	

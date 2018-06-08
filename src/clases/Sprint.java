@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 import Tareas.Tarea;
-import estadosTareas.Estado;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -220,7 +219,7 @@ public class Sprint implements Comparable<Sprint>{
 		estado=e;
 	}
 
-	public void cambiarEstadoTarea(String idT,Estados est,LocalDate fecha){
+	public void cambiarEstadoTarea(String idT,String est,LocalDate fecha){
 		Tarea t=getTarea(idT);
 		t.agregarEstadoHistorial(est, fecha);
 		t.setEstado(est);

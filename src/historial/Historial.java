@@ -4,13 +4,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import Tareas.EstadoTarea;
-import clases.Estados;
 
 public class Historial {
 	private LocalDate fecha;
-	private Estados estado;
+	private EstadoTarea estado;
 	//private ArrayList<EstadoTarea>estados=new ArrayList<EstadoTarea>();
-	public Historial(LocalDate fecha, Estados estado) {
+	public Historial(LocalDate fecha, EstadoTarea estado) {
 		super();
 		this.fecha = fecha;
 		this.estado = estado;
@@ -21,10 +20,10 @@ public class Historial {
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
-	public Estados getEstado() {
+	public EstadoTarea getEstado() {
 		return estado;
 	}
-	public void setEstado(Estados estado) {
+	public void setEstado(EstadoTarea estado) {
 		this.estado = estado;
 	}
 	

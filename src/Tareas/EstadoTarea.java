@@ -8,30 +8,29 @@ public enum EstadoTarea {
 	TESTING,
 	DONE;
 	
-	
 	public EstadoTarea devuelveEstado(String est){
-		EstadoTarea estado=null;
+		EstadoTarea estado;
 		switch (est){
 		case "TODO":
-			estado =EstadoTarea.TODO;
+			estado = TODO;
 			break;
 		case "INPROGRESS":
-			estado = EstadoTarea.INPROGRESS;
+			estado = INPROGRESS;
 			break;
 		case "PENDINGTOBUILD":
-			estado = EstadoTarea.PENDINGTOBUILD;
+			estado = PENDINGTOBUILD;
 			break;
 		case "READYTOTEST":
-			estado = EstadoTarea.READYTOTEST;
+			estado = READYTOTEST;
 			break;
 		case "TESTING":
-			estado = EstadoTarea.TESTING;
+			estado = TESTING;
 			break;
 		case"DONE":
-			estado =EstadoTarea.DONE;
+			estado =DONE;
 			break;
-		//default:
-			//estado = null;
+		default:
+			estado = null;
 		}
 		return estado;
 	}

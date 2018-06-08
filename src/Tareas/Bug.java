@@ -8,7 +8,6 @@ import java.util.Date;
 
 import com.sun.org.apache.bcel.internal.generic.LSUB;
 
-import clases.Estados;
 import estadosTareas.Estado;
 
 /**
@@ -17,7 +16,7 @@ import estadosTareas.Estado;
  */
 public class Bug extends Tarea{
 	
-	public Bug(String id, String nombre, String descripcion,String est, LocalDate finalizacion, int complejidad) {
+	public Bug(String id, String nombre, String descripcion,EstadoTarea est, LocalDate finalizacion, int complejidad) {
 		super(id, nombre, descripcion, est,finalizacion, complejidad);
 		
 	}
