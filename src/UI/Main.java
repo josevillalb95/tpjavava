@@ -4,11 +4,13 @@
 package UI;
 
 import java.awt.EventQueue;
+import java.awt.FontFormatException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
 
 import backLogs.Backlog;
+import clases.Grafico;
 import clases.Proyecto;
 import clases.Sprint;
 import clases.SprintNoValido;
@@ -22,8 +24,10 @@ public class Main {
 	/**
 	 * @param args
 	 * @throws SprintNoValido 
+	 * @throws IOException 
+	 * @throws FontFormatException 
 	 */
-	public static void main(String[] args) throws SprintNoValido {
+	public static void main(String[] args) throws SprintNoValido, FontFormatException, IOException {
 		// TODO Auto-generated method stub
 		Proyecto proy=new Proyecto();
 		//bl.cargaListaTareas();
@@ -80,8 +84,7 @@ public class Main {
 		
 		System.out.println("Estimacion SPR001:"+proy.calcularEstimacionSprint("SPR001"));
 		System.out.println("Estimacion SPR002:"+proy.calcularEstimacionSprint("SPR002"));
-		System.out.println("Estimacion historias SPR001:"+proy.calcularEstimacionHistoriaSprint("SPR001"));
-		System.out.println("Estimacion historias SPR002:"+proy.calcularEstimacionHistoriaSprint("SPR002"));
+		
 		//proy.bajaSprint("SPR002");
 		//proy.bajaTareaSprint("SPR002", "TAR002");
 		//proy.bajaTareaBackLog("TAR008");
@@ -100,13 +103,15 @@ public class Main {
 		//proy.cambiarEstadoTarea("SPR002", "HIS002", "PENDINGTOBUILD", proy.getFechaAvanceSprint("SPR002"));
 		proy.cambiarEstadoTarea("SPR002", "HIS002", "PENDINGTOBUILD");
 		proy.avance("SPR002");
+		proy.cambiarEstadoTarea("SPR002", "HIS002", "DONE");
 		proy.avance("SPR002");
 		//proy.cambiarEstadoTarea("SPR002", "HIS002", "READYTOTEST", proy.getFechaAvanceSprint("SPR002"));
 		//proy.cambiarEstadoTarea("SPR002", "HIS005", "PENDINGTOBUILD", proy.getFechaAvanceSprint("SPR002"));
 		proy.avance("SPR002");
+		proy.cambiarEstadoTarea("SPR002", "HIS005", "DONE");
 		proy.avance("SPR002");
 		//proy.cambiarEstadoTarea("SPR002", "HIS002", "TESTING", proy.getFechaAvanceSprint("SPR002"));
-		proy.cambiarEstadoTarea("SPR002", "HIS002", "TESTING");
+		//proy.cambiarEstadoTarea("SPR002", "HIS002", "TESTING");
 		proy.avance("SPR002");
 		proy.avance("SPR002");
 		proy.avance("SPR002");
@@ -122,7 +127,18 @@ public class Main {
 		//proy.corrersp();
 		proy.historial("SPR002");
 		//proy.mostrarTareas();
-
+		System.out.println(proy.RankingEstimacion().toString());
+		
+		System.out.println("Estimacion historias SPR001:"+proy.calcularEstimacionHistoriaSprint("SPR001"));
+		System.out.println("Estimacion historias SPR002:"+proy.calcularEstimacionHistoriaSprint("SPR002"));
+		
+		Grafico g=new Grafico();
+		g.graf();
+	
+	
+		
+		proy.reporteListado();
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

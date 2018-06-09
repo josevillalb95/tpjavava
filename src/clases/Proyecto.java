@@ -3,6 +3,9 @@
  */
 package clases;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 //import java.util.Date;
 import java.util.Iterator;
 import java.util.TreeSet;
@@ -420,6 +423,45 @@ public final class Proyecto {
 	public void historial(String idSprint){
 		Sprint s=devuelveSprint(idSprint);
 		s.muestraHistorial();
+	}
+	
+	public ArrayList RankingEstimacion(){
+		ArrayList<Sprint>listaEsti = new ArrayList<Sprint>() ; 
+		for(Sprint s:LSprints){
+			//s.estimacionHistoriaSprint();
+			listaEsti.add(s);
+		}
+		Collections.sort(listaEsti,new Comparator<Sprint>(){
+			public int compare(Sprint s1, Sprint s2) {
+				int est1=s1.estimacionHistoriaSprint();
+				int est2=s2.estimacionHistoriaSprint();
+				if(est1==est2)
+					return 0;
+				else
+					if(est1<est2)
+						return 1;
+					else
+						return -1;
+			}
+		});
+		return listaEsti;	
+	}
+	public void reporteListado(){
+		for(Sprint s:LSprints){
+			System.out.println(s.getClave());
+			System.out.println("Completadas:");
+			
+			int est=0;
+			for(Tarea t:s.tareasCompletadas()){
+				est+=t.estimacion();
+			}
+			System.out.println(s.tareasCompletadas().toString()+" "+est);
+			System.out.println("No completadas:");
+			est=0;
+			for(Tarea t:s.tareasNoCompletadas())
+				est+=t.estimacion();
+			System.out.println(s.tareasNoCompletadas().toString()+" "+est);
+		}
 	}
 	
 	/**

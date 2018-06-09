@@ -1,6 +1,7 @@
 package clases;
 
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeSet;
 
@@ -165,7 +166,7 @@ public class Sprint implements Comparable<Sprint>, Serializable{
 		Tarea tar=null;
 		while(it.hasNext()){
 			tar=it.next();
-			if(tar.getId().substring(0,3).equals("HIS"))
+			if(tar.getId().substring(0,3).equals("HIS") && tar.getEstado().equals("DONE"))
 				est+=tar.estimacion();
 		}
 		return est;
@@ -246,6 +247,29 @@ public class Sprint implements Comparable<Sprint>, Serializable{
 			t.muestraHistorico();
 		}
 		
+	}
+	public String toString(){
+		return clave+" "+estimacionHistoriaSprint();
+	}
+	
+	
+	public ArrayList<Tarea> tareasCompletadas(){
+		ArrayList<Tarea>LCompletadas=new ArrayList<Tarea>();
+		
+		for(Tarea t:LTareas){
+			if(t.getEstado().equals("DONE"))
+				LCompletadas.add(t);	
+		}
+		return LCompletadas;
+	}
+	public ArrayList<Tarea> tareasNoCompletadas(){
+		ArrayList<Tarea>LNoCompletadas=new ArrayList<Tarea>();
+		
+		for(Tarea t:LTareas){
+			if(!t.getEstado().equals("DONE"))
+				LNoCompletadas.add(t);	
+		}
+		return LNoCompletadas;
 	}
 	
 }
