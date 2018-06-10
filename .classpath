@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JCommon"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JFreeChart"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JFreeChart1"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -30,24 +30,7 @@ public class Main {
 		proy.cargarTareas();
 		
 		
-		proy.altaSprint("SPR001", "Sprint 1");
-		proy.agregarTareasSprint("SPR001","HIS001");
-		proy.agregarTareasSprint("SPR001","TAR004");
-		proy.agregarTareasSprint("SPR001","TAR005");
-		proy.agregarTareasSprint("SPR001","TAR003");
-		proy.agregarTareasSprint("SPR001","HIS004");
-		proy.agregarTareasSprint("SPR001","TAR008");
-		proy.agregarTareasSprint("SPR001","TAR009");
-		
-		proy.altaSprint("SPR002", "Sprint 2");
-		proy.agregarTareasSprint("SPR002", "TAR001");
-		proy.agregarTareasSprint("SPR002", "HIS002");
-		proy.agregarTareasSprint("SPR002", "TAR006");
-		proy.agregarTareasSprint("SPR002", "HIS005");
-		proy.agregarTareasSprint("SPR002", "TAR002");
-		proy.agregarTareasSprint("SPR002", "TAR010");
-		//proy.agregarTareasSprint("SPR002","MEJ002");
-		//proy.agregarTareasSprint("SPR002","TAR012");
+	
 		
 		proy.agregarDependencias("HIS002","TAR003");
 		proy.agregarDependencias("HIS005","HIS004");
@@ -76,7 +59,24 @@ public class Main {
 		
 		//TAR001, HIS002, TAR006, HIS005, TAR002, TAR010, MEJ002, TAR012
 		
+		proy.altaSprint("SPR001", "Sprint 1");
+		proy.agregarTareasSprint("SPR001","HIS001");
+		proy.agregarTareasSprint("SPR001","TAR004");
+		proy.agregarTareasSprint("SPR001","TAR005");
+		proy.agregarTareasSprint("SPR001","TAR003");
+		proy.agregarTareasSprint("SPR001","HIS004");
+		proy.agregarTareasSprint("SPR001","TAR008");
+		proy.agregarTareasSprint("SPR001","TAR009");
 		
+		proy.altaSprint("SPR002", "Sprint 2");
+		proy.agregarTareasSprint("SPR002", "TAR001");
+		proy.agregarTareasSprint("SPR002", "HIS002");
+		proy.agregarTareasSprint("SPR002", "TAR006");
+		proy.agregarTareasSprint("SPR002", "HIS005");
+		proy.agregarTareasSprint("SPR002", "TAR002");
+		proy.agregarTareasSprint("SPR002", "TAR010");
+		//proy.agregarTareasSprint("SPR002","MEJ002");
+		//proy.agregarTareasSprint("SPR002","TAR012");
 		
 		System.out.println("Estimacion SPR001:"+proy.calcularEstimacionSprint("SPR001"));
 		System.out.println("Estimacion SPR002:"+proy.calcularEstimacionSprint("SPR002"));
@@ -128,7 +128,7 @@ public class Main {
 		
 		System.out.println("Estimacion historias SPR001:"+proy.calcularEstimacionHistoriaSprint("SPR001"));
 		System.out.println("Estimacion historias SPR002:"+proy.calcularEstimacionHistoriaSprint("SPR002"));
-		proy.RankingEstimacion();
+		System.out.println(proy.RankingEstimacion());
 		proy.reporteListado();
 
 		EventQueue.invokeLater(new Runnable() {

@@ -172,7 +172,7 @@ public final class Proyecto {
 			if(tar.getId().equals(idT)){
 				sp.aSprintTarea(tar);
 				//blog.bajaTarea(tar.getId());
-				//itt.remove();
+				itt.remove();
 				bandera=false;
 			}
 			
