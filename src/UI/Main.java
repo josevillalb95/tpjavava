@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.Month;
 
 import backLogs.Backlog;
+import clases.Grafico;
 import clases.Proyecto;
 import clases.Sprint;
 import clases.SprintNoValido;
@@ -130,6 +131,8 @@ public class Main {
 		System.out.println("Estimacion historias SPR002:"+proy.calcularEstimacionHistoriaSprint("SPR002"));
 		System.out.println(proy.RankingEstimacion());
 		proy.reporteListado();
+		Grafico g=new Grafico();
+		g.graf();
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
