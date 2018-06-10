@@ -279,10 +279,10 @@ public class Tarea implements Comparable<Tarea>, Serializable {
 		//estado=e.devuelveEstado(est);
 		estado=EstadoTarea.valueOf(est);
 	}
+	
 	 public String toString(){
 		 return id;
 	 }
-	
 	
 
 	/*

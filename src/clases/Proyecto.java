@@ -172,6 +172,7 @@ public final class Proyecto {
 			if(tar.getId().equals(idT)){
 				sp.aSprintTarea(tar);
 				//blog.bajaTarea(tar.getId());
+				//itt.remove();
 				bandera=false;
 			}
 			
@@ -425,7 +426,7 @@ public final class Proyecto {
 		s.muestraHistorial();
 	}
 	
-	public ArrayList RankingEstimacion(){
+	public ArrayList<Sprint> RankingEstimacion(){
 		ArrayList<Sprint>listaEsti = new ArrayList<Sprint>() ; 
 		for(Sprint s:LSprints){
 			//s.estimacionHistoriaSprint();
@@ -463,7 +464,6 @@ public final class Proyecto {
 			System.out.println(s.tareasNoCompletadas().toString()+" "+est);
 		}
 	}
-	
 	/**
 	 * Serializa
 	 * @param obj Object a serializar

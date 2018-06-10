@@ -166,7 +166,7 @@ public class Sprint implements Comparable<Sprint>, Serializable{
 		Tarea tar=null;
 		while(it.hasNext()){
 			tar=it.next();
-			if(tar.getId().substring(0,3).equals("HIS") && tar.getEstado().equals("DONE"))
+			if(tar.getId().substring(0,3).equals("HIS"))
 				est+=tar.estimacion();
 		}
 		return est;
