@@ -143,10 +143,6 @@ public final class Proyecto {
 		}
 	}
 	
-	/*public Sprint getSprint(String clave){
-		LSprints.
-	}*/
-	
 	/**
 	 * Agrega una Tarea a un String
 	 * @param idS Sprint al cual se le agregara una Tarea
@@ -338,7 +334,7 @@ public final class Proyecto {
 			if(sp.getEstado().toString().equals("ENCURSO"))
 				bandera=false;
 		}
-		Sprint s=devuelveSprint(idSprint);
+		Sprint s=getSprint(idSprint);
 		if(bandera)
 			s.cambiarEstado(estado);
 		else
@@ -350,15 +346,14 @@ public final class Proyecto {
 	 * @param idSprint Id del Sprint a buscar
 	 * @return Sprint buscado.
 	 */
-	public Sprint devuelveSprint(String idSprint){
+	public Sprint getSprint(String idSprint){
 		Iterator<Sprint>it=LSprints.iterator();
 		Sprint sp=null;
 		boolean bandera=false;
 		while(it.hasNext() && !bandera){
 			sp=it.next();
-			if(sp.getClave().compareTo(idSprint)==0){
+			if(sp.getClave().equals(idSprint))
 				bandera=true;
-			}
 		}
 		return sp;
 	}
@@ -370,7 +365,7 @@ public final class Proyecto {
 	 * @param ff Fecha de fin a asignar.
 	 */
 	public void sprintEnCurso(String idSprint, LocalDate fi,LocalDate ff){
-		Sprint s=devuelveSprint(idSprint);
+		Sprint s=getSprint(idSprint);
 		s.comenzar(fi, ff);
 	}
 	
@@ -380,7 +375,7 @@ public final class Proyecto {
 	 * @param idSprint Sprint en el cual se generara el avance.
 	 */
 	public void avance(String idSprint){
-		Sprint s=devuelveSprint(idSprint);
+		Sprint s=getSprint(idSprint);
 		LocalDate fecha;
 		int avance;
 		//LocalDate fecha=s.getfInicio().plusDays(1);
@@ -402,27 +397,27 @@ public final class Proyecto {
 	
 
 	public int cantAvance(String id){
-		Sprint s=devuelveSprint(id);
+		Sprint s=getSprint(id);
 		return s.getAvance();
 	}
 	
 	public int calcularDuracion(String idSprint){
-		Sprint s=devuelveSprint(idSprint);
+		Sprint s=getSprint(idSprint);
 		return s.duracion();
 	}
 	
 	public void cambiarEstadoTarea(String idSprint,String idT,String est){
-		Sprint s=devuelveSprint(idSprint);
+		Sprint s=getSprint(idSprint);
 		s.cambiarEstadoTarea(idT, est);
 	}
 	public LocalDate getFechaAvanceSprint(String idSprint){
 		LocalDate fecha;
-		Sprint s=devuelveSprint(idSprint);
+		Sprint s=getSprint(idSprint);
 		fecha=s.getfAvance();
 		return fecha;
 	}
 	public void historial(String idSprint){
-		Sprint s=devuelveSprint(idSprint);
+		Sprint s=getSprint(idSprint);
 		s.muestraHistorial();
 	}
 	

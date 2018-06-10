@@ -94,7 +94,7 @@ public class Sprint implements Comparable<Sprint>, Serializable{
 	 * Busca y da de baja una Tarea con la clave pasada por parametro. 
 	 * @param clave Clave a eliminar
 	 */
-	/**public void bSprintTarea(String clave) {
+	/*public void bSprintTarea(String clave) {
 		Iterator<Tarea> it = LTareas.iterator();
 		Tarea t = null;
 		boolean bandera = false;
